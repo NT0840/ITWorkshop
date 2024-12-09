@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e">
     <diagram id="Z_sy9_pRJLrxqIElpyG8" name="基本アーキテクチャ図(1)">
-        <mxGraphModel dx="1555" dy="1049" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+        <mxGraphModel dx="1273" dy="1326" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="2" value="枠組み" parent="0"/>
@@ -82,7 +82,7 @@
                 <mxCell id="61" value="&lt;span style=&quot;font-size: 11px;&quot;&gt;c)：ログアウト処理&lt;/span&gt;" style="text;strokeColor=none;align=left;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;labelBackgroundColor=none;fontSize=10;" parent="2" vertex="1">
                     <mxGeometry x="-236" y="1484" width="116" height="20" as="geometry"/>
                 </mxCell>
-                <mxCell id="1" parent="0"/>
+                <mxCell id="1" style="" parent="0"/>
                 <mxCell id="5hx7r6OHmIrwXgIQcEw7-11" value="" style="group" parent="1" vertex="1" connectable="0">
                     <mxGeometry x="-260" y="-350" width="473.5" height="330" as="geometry"/>
                 </mxCell>
@@ -612,13 +612,13 @@
                     </mxGeometry>
                 </mxCell>
                 <mxCell id="SinUWhQWTH323fvEsbH5-22" value="" style="group" parent="1" vertex="1" connectable="0">
-                    <mxGeometry x="230" y="450" width="200" height="135.33" as="geometry"/>
+                    <mxGeometry x="230" y="450" width="200" height="100" as="geometry"/>
                 </mxCell>
                 <mxCell id="y_gbYHGOkGPl-Gcg3ohX-2" value="&lt;font color=&quot;#000000&quot;&gt;&lt;br&gt;&lt;/font&gt;" style="shape=callout;whiteSpace=wrap;html=1;perimeter=calloutPerimeter;fontSize=11;fillColor=#dae8fc;strokeColor=#6c8ebf;base=13;position2=0.4;size=30;position=0.47;align=left;rotation=-180;" parent="SinUWhQWTH323fvEsbH5-22" vertex="1">
-                    <mxGeometry y="5.684217133075749e-14" width="199.99646699999997" height="129.99714691850318" as="geometry"/>
+                    <mxGeometry y="3.780237508141708e-14" width="199.99646699999997" height="86.45343399590102" as="geometry"/>
                 </mxCell>
-                <mxCell id="y_gbYHGOkGPl-Gcg3ohX-3" value="&lt;font style=&quot;font-size: 10px;&quot;&gt;[フィールド]&lt;br style=&quot;&quot;&gt;String userId&lt;br style=&quot;&quot;&gt;Int roadmapId&lt;br&gt;String roadmapName&lt;br&gt;LocalDateTime roadmapCreateAt&lt;br&gt;LocalDateTime　roadmapUpdateAt&lt;br&gt;ArrayList&amp;lt;ParentElement&amp;gt; parentElements&lt;br&gt;ArrayList&amp;lt;ChildElement&amp;gt; childElements&lt;/font&gt;" style="text;strokeColor=none;align=left;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;labelBackgroundColor=none;fontSize=10;fontColor=#000000;" parent="SinUWhQWTH323fvEsbH5-22" vertex="1">
-                    <mxGeometry y="19.339575549260427" width="199.99999999999997" height="115.9904244507396" as="geometry"/>
+                <mxCell id="y_gbYHGOkGPl-Gcg3ohX-3" value="&lt;font style=&quot;font-size: 10px;&quot;&gt;[フィールド]&lt;br style=&quot;&quot;&gt;RoadmapId&lt;br&gt;ArrayList&amp;lt;ParentElement&amp;gt; parentElements&lt;br&gt;ArrayList&amp;lt;ChildElement&amp;gt; childElements&lt;/font&gt;" style="text;strokeColor=none;align=left;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;labelBackgroundColor=none;fontSize=10;fontColor=#000000;" parent="SinUWhQWTH323fvEsbH5-22" vertex="1">
+                    <mxGeometry y="12.86" width="200" height="87.14" as="geometry"/>
                 </mxCell>
                 <mxCell id="SinUWhQWTH323fvEsbH5-24" value="&lt;span style=&quot;font-size: 11px;&quot;&gt;取得&lt;br&gt;&lt;/span&gt;" style="text;strokeColor=none;align=left;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;labelBackgroundColor=none;fontSize=10;" parent="1" vertex="1">
                     <mxGeometry x="201.75" y="680" width="30" height="30" as="geometry"/>
@@ -788,7 +788,7 @@
                 <mxCell id="CBrPYdOECoBDX8SypaeP-1" value="" style="group" parent="1" vertex="1" connectable="0">
                     <mxGeometry x="706.1841078838174" y="1090" width="110" height="45" as="geometry"/>
                 </mxCell>
-                <mxCell id="CBrPYdOECoBDX8SypaeP-2" value="AccountsDAO&lt;br&gt;updateTokenByUserId()" style="rounded=0;whiteSpace=wrap;html=1;labelBackgroundColor=none;fillStyle=auto;strokeColor=#6F0000;fontFamily=Helvetica;fontSize=10;fontColor=#ffffff;fillColor=#a20025;container=0;" parent="CBrPYdOECoBDX8SypaeP-1" vertex="1">
+                <mxCell id="CBrPYdOECoBDX8SypaeP-2" value="AccountsDAO&lt;br&gt;updateUuidByUserId()" style="rounded=0;whiteSpace=wrap;html=1;labelBackgroundColor=none;fillStyle=auto;strokeColor=#6F0000;fontFamily=Helvetica;fontSize=10;fontColor=#ffffff;fillColor=#a20025;container=0;" parent="CBrPYdOECoBDX8SypaeP-1" vertex="1">
                     <mxGeometry y="20" width="110" height="25" as="geometry"/>
                 </mxCell>
                 <mxCell id="CBrPYdOECoBDX8SypaeP-11" value="" style="group" parent="1" vertex="1" connectable="0">
@@ -900,8 +900,8 @@
                 <mxCell id="wh2zpdDx1nXNKpHRa-gx-215" value="SMTPサーバ" style="text;strokeColor=none;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;labelBackgroundColor=none;fontSize=10;" parent="wh2zpdDx1nXNKpHRa-gx-216" vertex="1">
                     <mxGeometry y="86" width="73" height="20" as="geometry"/>
                 </mxCell>
-                <mxCell id="wh2zpdDx1nXNKpHRa-gx-222" value="&lt;span style=&quot;font-size: 11px;&quot;&gt;メール&lt;br&gt;送信&lt;/span&gt;" style="text;strokeColor=none;align=left;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;labelBackgroundColor=none;fontSize=10;" parent="1" vertex="1">
-                    <mxGeometry x="806.52" y="1261.5" width="37.17" height="20" as="geometry"/>
+                <mxCell id="wh2zpdDx1nXNKpHRa-gx-222" value="&lt;span style=&quot;font-size: 11px;&quot;&gt;メール送信&lt;/span&gt;" style="text;strokeColor=none;align=left;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;labelBackgroundColor=none;fontSize=10;" parent="1" vertex="1">
+                    <mxGeometry x="780" y="1261.5" width="63.69" height="20" as="geometry"/>
                 </mxCell>
                 <mxCell id="qUWfzGeAzLbKSwg53p9H-5" value="" style="group" parent="1" vertex="1" connectable="0">
                     <mxGeometry x="914.5" y="1081.63" width="73" height="104.75" as="geometry"/>
