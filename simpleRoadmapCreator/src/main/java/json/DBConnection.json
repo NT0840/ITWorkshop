@@ -1,6 +1,0 @@
-{
-  "driverClassName": "com.mysql.cj.jdbc.Driver",
-  "connectionUrl": "jdbc:h2:tcp://localhost/~/desktop/test",
-  "username": "sa",
-  "password": ""
-}

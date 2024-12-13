@@ -5,13 +5,18 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.UUID;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import jakarta.servlet.http.HttpServletRequest;
 import model.Account;
+import model.ErrorMsg;
 import model.Login;
 
 public class AccountsDAO {
-	public Account findAccount(Login login, HttpServletRequest request) throws SQLException {
+    private static final Logger LOGGER = Logger.getLogger(AccountsDAO.class.getName());
+    
+	public Account findAccount(Login login, HttpServletRequest request) {
         Connection connection = (Connection) request.getAttribute("connection");
         String sql = "SELECT * FROM ACCOUNT WHERE userId = ? AND pass = ?";
         try (PreparedStatement statement = connection.prepareStatement(sql)) {
@@ -29,6 +34,10 @@ public class AccountsDAO {
                     return account;
                 }
             }
+        } catch (SQLException e) {
+        	LOGGER.log(Level.SEVERE, "データベース操作中にエラーが発生しました", e);
+        	ErrorMsg errorMsg = new ErrorMsg("データベースエラー", "データベースエラーが発生しました");
+            request.setAttribute("DBError", errorMsg);
         }
         return null;
     }
