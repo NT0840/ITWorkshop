@@ -5,14 +5,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Roadmap implements Serializable{
+	private static final long serialVersionUID = 1L; // バージョン番号を設定
 	private RoadmapId roadmapId;
-	private ArrayList<ParentElement> parentElements;
-	private ArrayList<ChildElement> childElements;
+	private List<ParentElement> parentElements;
+	private List<List<ChildElement>> childElements; // 所属親要素番号、子要素番号で管理
 	
 	public Roadmap() { }
-	public Roadmap(RoadmapId roadmapId, ArrayList<ParentElement> parentElements,
-			ArrayList<ChildElement> childElements) {
-		super();
+	public Roadmap(RoadmapId roadmapId, List<ParentElement> parentElements,
+			List<List<ChildElement>> childElements) {
 		this.roadmapId = roadmapId;
 		this.parentElements = parentElements;
 		this.childElements = childElements;
@@ -30,10 +30,17 @@ public class Roadmap implements Serializable{
 	public void setParentElements(List<ParentElement> parentElements) {
 		this.parentElements = new ArrayList<>(parentElements);
 	}
-	public List<ChildElement> getChildElements() {
-		return new ArrayList<>(childElements);
+	public List<List<ChildElement>> getChildElements() {
+	    List<List<ChildElement>> copy = new ArrayList<>();
+	    for (List<ChildElement> childList : childElements) {
+	        copy.add(new ArrayList<>(childList));
+	    }
+	    return copy;
 	}
-	public void setChildElements(List<ChildElement> childElements) {
-		this.childElements = new ArrayList<>(childElements);
+	public void setChildElements(List<List<ChildElement>> childElements) {
+        this.childElements = new ArrayList<>();
+        for (List<ChildElement> childList : childElements) {
+            this.childElements.add(new ArrayList<>(childList));
+        }
 	}
 }

@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.sql.Timestamp;
 
 public class ChildElement implements Serializable {
+	private static final long serialVersionUID = 1L; // バージョン番号を設定
 	private String userId;
 	private int roadmapId;
 	private int parentNum;

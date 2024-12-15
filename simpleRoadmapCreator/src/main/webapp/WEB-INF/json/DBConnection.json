@@ -1,6 +1,6 @@
 {
   "driverClassName": "org.h2.Driver",
-  "connectionUrl": "jdbc:h2:tcp://localhost/~/desktop/test",
-  "username": "sa",
-  "password": ""
+  "jdbcUrl": "jdbc:h2:tcp://localhost/~/desktop/test",
+  "userName": "sa",
+  "pass": ""
 }

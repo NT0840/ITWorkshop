@@ -5,6 +5,7 @@ import java.sql.Timestamp;
 import java.util.UUID;
 
 public class Account implements Serializable{
+	private static final long serialVersionUID = 1L; // バージョン番号を設定
 	private String userId;
 	private String pass;
 	private String email;

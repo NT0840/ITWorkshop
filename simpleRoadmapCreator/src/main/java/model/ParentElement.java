@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.sql.Timestamp;
 
 public class ParentElement implements Serializable {
+	private static final long serialVersionUID = 1L; // バージョン番号を設定
 	private String userId;
 	private int roadmapId;
 	private int parentNum;
@@ -34,12 +35,12 @@ public class ParentElement implements Serializable {
 	public void setParentNum(int parentNum) { this.parentNum = parentNum; }
 	public String getParentName() { return parentName; }
 	public void setParentName(String parentName) { this.parentName = parentName; }
-	public int getStatusNum() { return parentStatusNum; }
-	public void setStatusNum(int parentStatusNum) { this.parentStatusNum = parentStatusNum; }
+	public int getParentStatusNum() { return parentStatusNum; }
+	public void setParentStatusNum(int parentStatusNum) { this.parentStatusNum = parentStatusNum; }
 	public String getParentDescription() { return parentDescription; }
 	public void setParentDescription(String parentDescription) { this.parentDescription = parentDescription; }
-	public Timestamp getCreateAt() { return parentCreateAt; }
-	public void setCreateAt(Timestamp parentCreateAt) { this.parentCreateAt = parentCreateAt; }
-	public Timestamp getUpdateAt() { return parentUpdateAt; }
-	public void setUpdateAt(Timestamp parentUpdateAt) { this.parentUpdateAt = parentUpdateAt; }
+	public Timestamp getParentCreateAt() { return parentCreateAt; }
+	public void setParentCreateAt(Timestamp parentCreateAt) { this.parentCreateAt = parentCreateAt; }
+	public Timestamp getParentUpdateAt() { return parentUpdateAt; }
+	public void setParentUpdateAt(Timestamp parentUpdateAt) { this.parentUpdateAt = parentUpdateAt; }
 }

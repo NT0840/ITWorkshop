@@ -3,6 +3,7 @@ package model;
 import java.io.Serializable;
 
 public class ErrorMsg implements Serializable{
+	private static final long serialVersionUID = 1L; // バージョン番号を設定
 	private String fieldName;
 	private String message;
 	

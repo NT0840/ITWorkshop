@@ -1,0 +1,37 @@
+// パス「/simpleRoadmapCreator/src/main/java/servlet/RoadmapServlet.java」
+
+package servlet;
+
+import java.io.IOException;
+
+import jakarta.servlet.RequestDispatcher;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+
+@WebServlet("/RoadmapServlet")
+public class RoadmapServlet extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String forwardPath = null;
+		// サーブレットクラスの動作を決定する「action」の値をリクエストパラメータから取得
+		String action = request.getParameter("action");
+		if(action == null) {
+			forwardPath = "WEB-INF/jsp/roadmap.jsp";
+		} else if(action.equals("new")) {
+			forwardPath = "WEB-INF/jsp/roadmapNew.jsp";
+		}
+		// マイページにフォワード
+		RequestDispatcher dispatcher = request.getRequestDispatcher(forwardPath);
+		dispatcher.forward(request, response);
+	}
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		doGet(request, response);
+	}
+
+}
