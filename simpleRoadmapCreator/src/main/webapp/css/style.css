@@ -27,9 +27,7 @@ select:focus {
   margin-top: 20px;
 }
 
-.send-button,
-.back-button {
-  background-color: #007bff;
+button {
   color: white;
   border: none;
   padding: 10px 20px;
@@ -38,8 +36,14 @@ select:focus {
   cursor: pointer;
 }
 
+.default-button {
+  background-color: #FF8B20;;
+}
 .back-button {
   background-color: #6c757d;
+}
+.delete-button {
+  background-color: #ad0c00;
 }
 
 /*
@@ -104,7 +108,7 @@ select:focus {
 
 .remove-button {
   margin-right: 10px;
-  background-color: #f44336;
+  background-color: #ad0c00;
   color: white;
   border: none;
   padding: 5px 10px;
@@ -112,7 +116,7 @@ select:focus {
 }
 
 .add-button {
-  background-color: #4CAF50;
+  background-color: #FF8B20;
   color: white;
   border: none;
   padding: 5px 10px;

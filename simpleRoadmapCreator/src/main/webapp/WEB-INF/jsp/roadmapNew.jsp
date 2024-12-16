@@ -31,7 +31,7 @@
 	
 		<div class="button-container">
 			<a href="MypageServlet" class="back-button">戻る</a>
-			<button type="submit" class="send-button">作成</button>
+			<button type="submit" class="button">作成</button>
 		</div>
 	</form>
 </body>

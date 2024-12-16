@@ -1,53 +1,180 @@
-/* ロードマップ表示画面 */
-.roadmap-header {
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 20px;
+}
+
+/* プルダウンリストのスタイル */
+select {
+  width: 8rem;
+  padding: 4px;
+  border: 1px solid #000;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+select:focus {
+  outline: none;
+  border: 1px solid #666;
+}
+
+/* ボタンのスタイル */
+.button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+button {
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  text-decoration: none;
+  margin: 0 10px;
+  cursor: pointer;
+}
+
+.default-button {
+  background-color: #FF8B20;;
+}
+.back-button {
+  background-color: #6c757d;
+}
+.delete-button {
+  background-color: #ad0c00;
+}
+
+/*
+ロードマップ新規作成画面
+*/
+#roadmap-form input[type="text"] {
+  border: 1px solid #000;
+  border-radius: 5px;
+  padding: 4px;
+  margin-right: 10px;
+}
+#roadmap-form .create-order {
+  width: 2rem;
+}
+
+.element-heading {
+  margin-top: 30px;
   display: flex;
   justify-content: space-between;
+}
+.parent-heading {
+  width: 40%;
+  min-width: 435px;
+}
+.child-heading {
+  width: 60%;
+  min-width: fit-content;
+}
+
+.child-container {
+  width: 60%;
+  min-width: fit-content;
+}
+
+.parent-row,
+.child-row {
+  display: flex;
   align-items: center;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 10px;
+}
+.parent-row {
+  justify-content: space-between;
+}
+
+.parent-input-group,
+.child-input-group {
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+}
+.parent-input-group {
+  width: 40%;
+  min-width: fit-content;
+}
+
+.parent-input-group label,
+.child-input-group label {
+  margin-right: 5px;
+}
+
+.remove-button {
+  margin-right: 10px;
+  background-color: #ad0c00;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.add-button {
+  background-color: #FF8B20;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+
+/* */
+/* ロードマップ表示画面 */
+.roadmap-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
 }
 
 .roadmap-info {
-  text-align: left;
+    text-align: left;
 }
 
 .roadmap-actions {
-  display: flex;
+    display: flex;
 }
 
 .roadmap-actions .button {
-  margin-left: 10px;
+    margin-left: 10px;
 }
 
 .roadmap-content {
-  display: flex;
+    display: flex;
 }
 
 .parent-elements {
-  width: 30%;
-  border-right: 1px solid #ccc;
-  padding-right: 20px;
+    width: 30%;
+    border-right: 1px solid #ccc;
+    padding-right: 20px;
 }
 
 .parent-element {
-  margin-bottom: 20px;
+    margin-bottom: 20px;
 }
 
 .parent-element .element-name {
-  border: 1px solid #ccc;
-  padding: 10px;
-  text-align: center;
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
 }
 
 .child-elements {
-  margin-left: 20px;
+    margin-left: 20px;
 }
 
 .child-element {
-  margin-bottom: 10px;
+    margin-bottom: 10px;
 }
 
 .child-element .element-name {
-  border: 1px solid #ccc;
-  padding: 10px;
-  text-align: center;
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
 }
