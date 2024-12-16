@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
+import bo.RoadmapLogic;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -34,7 +35,7 @@ public class RoadmapServlet extends HttpServlet {
 		} else if(action.equals("new")) {
 			forwardPath = "WEB-INF/jsp/roadmapNew.jsp";
 		}
-		// マイページにフォワード
+		// フォワード
 		RequestDispatcher dispatcher = request.getRequestDispatcher(forwardPath);
 		dispatcher.forward(request, response);
 	}
@@ -47,57 +48,24 @@ public class RoadmapServlet extends HttpServlet {
 		List<Roadmap> roadmaps  = (ArrayList<Roadmap>)session.getAttribute("roadmaps");
 		
 		if(action.equals("newRoadmap")) {
-			final int behindInsert = 1000; // 入力値の作成順(1～999)が重複していた場合に加算する値
-			Roadmap roadmap = new Roadmap();
-			List<ParentElement> parentElements = new ArrayList<>();
-			List<List<ChildElement>> childElements = new ArrayList<>();
+			final int behindInsert = 1000; // 入力値の作成順(1～999)が重複していた場合に加算する値。
 			
 			UserId userId = (UserId)session.getAttribute("userId");
 			
 			// 作成日時、更新日時セット用の現在時刻
 			Timestamp now = Timestamp.valueOf(LocalDateTime.now());
 			
-			// セッションスコープから取得したroadmapsから、roadmapIdの最大値+1を取得、roadmapNew.jspで入力された"roadmap-name"の値もroadmapIdインスタンスにセット
-			
+			// セッションスコープから取得したroadmapsから、roadmapIdの最大値を取得(セット時は+1でセット)、roadmapNew.jspで入力された"roadmap-name"の値もroadmapIdインスタンスにセット
+			RoadmapLogic roadmapLogic = new RoadmapLogic();
+			int roadmapIdNew = roadmapLogic.findRoadmapIdMax(userId) + 1;
 			String roadmapName = request.getParameter("roadmap-name");
-			RoadmapId roadmapId = new RoadmapId(userId.getUserId(), ロードマップID(int), roadmapName, now, now);
+			RoadmapId roadmapId = new RoadmapId(userId.getUserId(), roadmapIdNew, roadmapName, now, now);
 			
 			// roadmapNew.jspで入力した子要素・親要素の情報を取得					
 			// リクエスト内のパラメーターをキーと値のMapで取得。パラメータ重複時用にString[]になっている
 			Map<String, String[]> parameterMap = request.getParameterMap();
 			Map<Integer, Map<Integer, ChildElement>> childElementsMap = new TreeMap<>(); // <親要素作成順、<子要素作成順、子要素情報>>
 			Map<Integer, ParentElement> parentElementsMap = new TreeMap<>(); // <親要素作成順、親要素情報>
-			
-			// 子要素の取得
-			for (String paramName : parameterMap.keySet()) {
-				if (paramName.startsWith("child-order-")) {
-					String[] parts = paramName.split("-");
-					int parentIndex = Integer.parseInt(parts[2]);
-					int childIndex = Integer.parseInt(parts[3]);
-
-					String childOrder = request.getParameter(paramName);
-					String childName = request.getParameter("child-name-" + parentIndex + "-" + childIndex);
-					String childTag = request.getParameter("child-tag-" + parentIndex + "-" + childIndex);
-
-//					ChildElement childElement = new ChildElement(childOrder, childName, childTag);
-//					ParentElement parentElement = parentElements.get(parentIndex);
-//					if (parentElement != null) {
-//						parentElement.addChildElement(childElement);
-					
-					// 上のロードマップIDの空きを検索するDAO作成
-					// 子要素取得の中身調整、子要素については作成順重複時は、子要素作成順にbegindInsertを加算して格納するだけ
-					// 親要素の方は重複する場合以降の調整、作成順重複時は、親要素作成順にbehindInsertを加算(子要素のMap含めて2箇所)
-					// Map内情報を直接的に変更することはできないため、既存の値を取得、既存のキーを削除、再格納の手順となる。
-			        // 1. 既存の値を取得
-//			        String value = map.get(oldKey);
-			        // 2. 既存のキーを削除
-//			        map.remove(oldKey);
-			        // 3. 新しいキーで再格納
-//			        if (value != null) {
-//			            map.put(newKey, value);
-//			        }
-					}
-				}
 			
 			// 親要素の取得
 			for (String paramName : parameterMap.keySet()) {
@@ -109,34 +77,120 @@ public class RoadmapServlet extends HttpServlet {
 					// "parent-order-X"と同列のparent-name-Xの値を取得
 					String parentName = request.getParameter("parent-name-" + parentIndex);
 
-					ParentElement parentElement = new ParentElement(userId.getUserId(), roadmapId.getRoadmapId(), parentOrder, parentName, 0, "", now, now);
 					// 重複する場合は末尾にputするためにbehindInsertを加算する
-					if(parentElementsMap.containsKey(parentIndex)) {
-						parentIndex += behindInsert;
+					if(parentElementsMap.containsKey(parentOrder)) {
+						parentOrder += behindInsert;
 					}
-					parentElementsMap.put(parentIndex, parentElement);
+					ParentElement parentElement = new ParentElement(userId.getUserId(), roadmapId.getRoadmapId(), parentOrder, parentName, 0, "", now, now);
+					parentElementsMap.put(parentOrder, parentElement);
+					System.out.println("Mapに追加親要素：" +parentElement.getParentNum()+parentElement.getParentName());
 				}
-				
-				// Mapに格納した親要素情報、子要素情報をListに連番で格納する
-				// Mapに格納されているものを、キーが小さい順に値を取り出す
-//		        for (Map.Entry<Integer, String> entry : parentElements.entrySet()) {
-//		        }
-		        }
-				
 			}
-			}
-		
-			// Roadmapインスタンスを組み立ててaddしてセッションスコープに保存する操作、あと表示中roadmapインスタンスとしても保存
 			
-			
-			
-		
+			// 子要素の取得
+			for (String paramName : parameterMap.keySet()) {
+				if (paramName.startsWith("child-order-")) {
+					// "-"で分割して文字列に格納、パラメータの名称の親要素部分、子要素部分を取得
+					String[] parts = paramName.split("-");
+					int parentIndex = Integer.parseInt(parts[2]);
+					int childIndex = Integer.parseInt(parts[3]);
 
+					int childOrder = Integer.parseInt(request.getParameter(paramName));
+					int parentOrder = Integer.parseInt(request.getParameter("parent-order-" + parentIndex));
+					String childName = request.getParameter("child-name-" + parentIndex + "-" + childIndex);
+					int childTagNum = Integer.parseInt(request.getParameter("child-tag-" + parentIndex + "-" + childIndex));
+					
+					// 重複する場合は末尾にputするためにparentOrderにbehindInsertを加算する(ParentElementsMapに対応させるた目的)
+					if(childElementsMap.containsKey(parentOrder)) {
+						parentOrder += behindInsert;
+					}
+					// 子要素に対応する親要素に関するMapを取り出す
+					Map<Integer, ChildElement> innerMap = childElementsMap.get(parentOrder);
+					ChildElement childElement = new ChildElement(userId.getUserId(), roadmapId.getRoadmapId(), parentOrder, childOrder, childName, childTagNum, 0, "", now, now);
+					// すでに子要素のMapがある場合、childElementをputして、大元のMapへ上書き
+					if(innerMap != null) {
+						// 重複する場合は末尾にputするためにchildOrderにbehindInsertを加算する
+						if(innerMap.containsKey(childOrder)) {
+							childOrder += behindInsert;
+							childElement.setChildNum(childOrder);
+						}
+						innerMap.put(childOrder, childElement);
+						childElementsMap.put(parentOrder, innerMap);
+						System.out.println("Mapに追加子要素(初回)：" +childElement.getParentNum()+ childElement.getChildNum()+childElement.getChildName());
+					} else { // 子要素1つめの場合
+						Map<Integer, ChildElement> innerMapNew = new TreeMap<>();
+						innerMapNew.put(childOrder, childElement);
+						childElementsMap.put(parentOrder, innerMapNew);
+						System.out.println("Mapに追加子要素：" +childElement.getParentNum()+ childElement.getChildNum()+childElement.getChildName());
+					}
+				}
+			}
+			
+			// Map内に格納した情報を各Listに連番で保存する
+			int parentCount = 1; // 連番用の数字
+			int childCount = 1;
+			List<ParentElement> parentElements = new ArrayList<>();
+			List<List<ChildElement>> childElements = new ArrayList<>();
+			// 親要素, Mapに格納されているものを、キーが小さい順に値を取り出す
+			for (Map.Entry<Integer, ParentElement> entry : parentElementsMap.entrySet()) {
+			    ParentElement parentElement = new ParentElement(
+			            entry.getValue().getUserId(),
+			            entry.getValue().getRoadmapId(),
+			            parentCount, // 新しい親要素番号
+			            entry.getValue().getParentName(),
+			            entry.getValue().getParentStatusNum(),
+			            entry.getValue().getParentDescription(),
+			            entry.getValue().getParentCreateAt(),
+			            entry.getValue().getParentUpdateAt()
+			        );
+				parentElements.add(parentElement);
+				System.out.println("Listに追加親要素：" +parentElement.getParentNum()+parentElement.getParentName());
+				parentCount++;
+			}
+			// 子要素, Mapに格納されているものを、キーが小さい順に値を取り出す
+			parentCount = 1;
+			for (Map.Entry<Integer, Map<Integer, ChildElement>> entryMap : childElementsMap.entrySet()) {
+				childCount = 1;
+//				Integer parentOrderKey = entryMap.getKey(); // childElementsMapのキーを取得
+				// childElementsMapのキーがparentElementsMapのキーに存在するか確認
+//				if(parentElementsMap.containsKey(parentOrderKey)) {
+						
+					List<ChildElement> innerChildElements = new ArrayList<>();
+					
+					for (Map.Entry<Integer, ChildElement> entry : entryMap.getValue().entrySet()) {
+						ChildElement childElement = new ChildElement(
+				                entry.getValue().getUserId(),
+				                entry.getValue().getRoadmapId(),
+				                parentCount, // 親要素番号
+				                childCount,   // 子要素番号
+				                entry.getValue().getChildName(),
+				                entry.getValue().getChildTagNum(),
+				                entry.getValue().getChildStatusNum(),
+				                entry.getValue().getChildDescription(),
+				                entry.getValue().getChildCreateAt(),
+				                entry.getValue().getChildUpdateAt()
+				            );
+						innerChildElements.add(childElement);
+						childCount++;
+						System.out.println("Listに追加子要素：" +childElement.getParentNum()+ childElement.getChildNum()+childElement.getChildName());
+					}
+					childElements.add(innerChildElements);
+//				}
+				parentCount++;
+			}
+			// Roadmapインスタンスを組み立ててスコープから取得したroadmapsにaddしてセッションスコープに保存
+			Roadmap roadmap = new Roadmap(roadmapId, parentElements, childElements);
+			roadmaps.add(roadmap);
+			session.setAttribute("roadmaps", roadmaps);
+			
+			// 表示中roadmapインスタンスとして、roadmapIdインスタンスをセッションスコープに保存
+			session.setAttribute("currentRoadmapId", roadmap.getRoadmapId());
+			
+			// 組み立てたRoadmapインスタンスをデータベースに保存
+			Boolean isCreateRoadmap = roadmapLogic.createRoadmap(roadmap);			
 		
-		
-		
-		
-		doGet(request, response);
+			RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/jsp/roadmap.jsp");
+			dispatcher.forward(request, response);
+		}
 	}
-
 }

@@ -1,3 +1,5 @@
+// パス「/simpleRoadmapCreator/src/main/webapp/css/style.css」
+
 body {
   font-family: Arial, sans-serif;
   margin: 0;
@@ -117,60 +119,4 @@ select:focus {
   border: none;
   padding: 5px 10px;
   cursor: pointer;
-}
-
-
-/* */
-/* ロードマップ表示画面 */
-.roadmap-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
-}
-
-.roadmap-info {
-    text-align: left;
-}
-
-.roadmap-actions {
-    display: flex;
-}
-
-.roadmap-actions .button {
-    margin-left: 10px;
-}
-
-.roadmap-content {
-    display: flex;
-}
-
-.parent-elements {
-    width: 30%;
-    border-right: 1px solid #ccc;
-    padding-right: 20px;
-}
-
-.parent-element {
-    margin-bottom: 20px;
-}
-
-.parent-element .element-name {
-    border: 1px solid #ccc;
-    padding: 10px;
-    text-align: center;
-}
-
-.child-elements {
-    margin-left: 20px;
-}
-
-.child-element {
-    margin-bottom: 10px;
-}
-
-.child-element .element-name {
-    border: 1px solid #ccc;
-    padding: 10px;
-    text-align: center;
 }

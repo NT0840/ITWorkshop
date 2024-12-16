@@ -39,5 +39,26 @@ public class RoadmapLogic {
 		
 		return roadmaps; 
 	}
-
+	
+	public int findRoadmapIdMax(UserId userId) {
+		// ユーザーIDに紐づくRoadmapIdの最大値の取得
+		RoadmapIdsDAO roadmapIdsDao = new RoadmapIdsDAO();
+		int roadmapIdMax = roadmapIdsDao.findRoadmapIdMaxByUserId(userId);
+		
+		return roadmapIdMax;
+	}
+	
+	public boolean createRoadmap(Roadmap roadmap) {
+		// ユーザーIDに紐づくRoadmapIdの最大値の取得
+		RoadmapIdsDAO roadmapIdsDao = new RoadmapIdsDAO();
+		Boolean roadmapIdInsert = roadmapIdsDao.insert(roadmap.getRoadmapId());
+		
+		ParentElementsDAO parentElementsDao = new ParentElementsDAO();
+		Boolean parentElementsInsert= parentElementsDao.insertByList(roadmap.getParentElements());
+		
+		ChildElementsDAO childElementsDao = new ChildElementsDAO();
+		Boolean childElementsInsert = childElementsDao.insertByList(roadmap.getChildElements());
+		
+		return roadmapIdInsert && parentElementsInsert && childElementsInsert; 
+	}
 }

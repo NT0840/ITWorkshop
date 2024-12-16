@@ -47,4 +47,44 @@ public class ParentElementsDAO {
 		}
 		return parentElements;
 	}
+	
+	public boolean insertByList(List<ParentElement> parentElements) {
+		try (Connection conn = DriverManager.getConnection(ApplicationListener.getJdbcUrl(), ApplicationListener.getUserName(), ApplicationListener.getPass())) {
+			
+			String sql = "INSERT INTO PARENT_ELEMENTS VALUES (USER_ID = ?, ROADMAP_ID = ?, PARENT_NUM = ?, PARENT_NAME = ?, PARENT_STATUS_NUM = ?, PARENT_DESCRIPTION = ?, PARENT_CREATE_AT = ?, PARENT_UPDATE_AT = ?)";
+			PreparedStatement pStmt = conn.prepareStatement(sql);
+			
+			List<Boolean> results = new ArrayList<>();
+			
+			for(ParentElement parentElement : parentElements) {	
+				pStmt.setString(1, parentElement.getUserId());
+				pStmt.setInt(2, parentElement.getRoadmapId());
+				pStmt.setInt(3, parentElement.getParentNum());
+				pStmt.setString(4, parentElement.getParentName());
+				pStmt.setInt(5, parentElement.getParentStatusNum());
+				pStmt.setString(6, parentElement.getParentDescription());
+				pStmt.setTimestamp(7, parentElement.getParentCreateAt());
+				pStmt.setTimestamp(8, parentElement.getParentUpdateAt());
+				
+				// INSERTを実行、結果をリストで保存
+				int result = pStmt.executeUpdate();
+				if(result < 1) {
+					results.add(false);
+				} else {
+					results.add(true);
+				}
+			}
+			
+			// 一つでもfalseならfalseを戻す
+			for(Boolean result : results) {
+				if(!result) {
+					return false;
+				}
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return false;
+		}
+		return true;
+	}
 }

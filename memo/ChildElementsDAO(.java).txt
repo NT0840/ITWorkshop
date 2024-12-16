@@ -58,5 +58,49 @@ public class ChildElementsDAO {
 		}
 		return childElements;
 	}
+	
+	public boolean insertByList(List<List<ChildElement>> childElements) {
+		try (Connection conn = DriverManager.getConnection(ApplicationListener.getJdbcUrl(), ApplicationListener.getUserName(), ApplicationListener.getPass())) {
+			
+			String sql = "INSERT INTO CHILD_ELEMENTS VALUES (USER_ID = ?, ROADMAP_ID = ?, PARENT_NUM = ?, CHILD_NUM = ?, CHILD_NAME = ?, CHILD_TAG_NUM = ?, CHILD_STATUS_NUM = ?, CHILD_DESCRIPTION = ?, CHILD_CREATE_AT = ?, CHILD_UPDATE_AT = ?)";
+			PreparedStatement pStmt = conn.prepareStatement(sql);
+			
+			List<Boolean> results = new ArrayList<>();
+			
+			for(List<ChildElement> innerChildElements : childElements) {
+				for(ChildElement childElement : innerChildElements) {
+					pStmt.setString(1, childElement.getUserId());
+					pStmt.setInt(2, childElement.getRoadmapId());
+					pStmt.setInt(3, childElement.getParentNum());
+					pStmt.setInt(4, childElement.getChildNum());
+					pStmt.setString(5, childElement.getChildName());
+					pStmt.setInt(6, childElement.getChildTagNum());
+					pStmt.setInt(7, childElement.getChildStatusNum());
+					pStmt.setString(8, childElement.getChildDescription());
+					pStmt.setTimestamp(9, childElement.getChildCreateAt());
+					pStmt.setTimestamp(10, childElement.getChildUpdateAt());
+					
+					// INSERTを実行、結果をリストで保存
+					int result = pStmt.executeUpdate();
+					if(result < 1) {
+						results.add(false);
+					} else {
+						results.add(true);
+					}
+				}
+			}
+			
+			// 一つでもfalseならfalseを戻す
+			for(Boolean result : results) {
+				if(!result) {
+					return false;
+				}
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return false;
+		}
+		return true;
+	}
 
 }
