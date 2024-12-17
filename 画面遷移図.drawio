@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e">
     <diagram id="WHIG_iPTzpvooCITM3A4" name="画面遷移図">
-        <mxGraphModel dx="2412" dy="1187" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+        <mxGraphModel dx="2277" dy="1056" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="832" value="枠組み" style="locked=1;" parent="0"/>
@@ -3767,6 +3767,9 @@
                 </mxCell>
                 <mxCell id="1253" value="&lt;div style=&quot;text-align: left; font-size: 12px;&quot;&gt;&lt;span style=&quot;background-color: initial; font-size: 12px;&quot;&gt;※アカウント管理画面の&lt;/span&gt;&lt;span style=&quot;background-color: initial; font-size: 12px;&quot;&gt;ラジオボタンの初期状態は「メールアドレス変更」&lt;/span&gt;&lt;/div&gt;" style="text;strokeColor=none;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;labelBackgroundColor=none;fontSize=12;" parent="1255" vertex="1">
                     <mxGeometry y="71.5" width="270" height="35" as="geometry"/>
+                </mxCell>
+                <mxCell id="1256" value="リクエストパラメータ&quot;select&quot;には、クリックしたロードマップのroadmapId(int)が格納される" style="text;strokeColor=default;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;labelBackgroundColor=none;fontSize=10;dashed=1;strokeWidth=2;perimeterSpacing=0;dashPattern=1 1;glass=1;fontColor=default;" vertex="1" parent="1">
+                    <mxGeometry x="-12" y="1580.75" width="170" height="40.75" as="geometry"/>
                 </mxCell>
                 <mxCell id="887" value="ポップアップ" style="locked=1;" parent="0"/>
                 <mxCell id="1190" value="" style="rounded=0;whiteSpace=wrap;html=1;labelBackgroundColor=none;fillStyle=auto;strokeColor=none;fontFamily=Helvetica;fontSize=11;fontColor=#007FFF;fillColor=#000000;opacity=50;" parent="887" vertex="1">

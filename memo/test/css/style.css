@@ -1,9 +1,17 @@
+/* 共通部分 */
 body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 20px;
+  background-color: #cc3429;
 }
-
+.form {
+  background-color: white;
+  border: 1px solid #000;
+  border-radius: 5px;
+  padding: 4px;
+  margin: 10px;
+}
 /* プルダウンリストのスタイル */
 select {
   width: 8rem;
@@ -27,17 +35,20 @@ select:focus {
   margin-top: 20px;
 }
 
-button {
+.button {
+  background-color: #FF8B20;
   color: white;
   border: none;
+  border-radius: 50rem;
   padding: 10px 20px;
   text-decoration: none;
   margin: 0 10px;
   cursor: pointer;
+  opacity: 1;
+  transition: opacity 0.3s ease;
 }
-
-.default-button {
-  background-color: #FF8B20;;
+.button:hover {
+  opacity: 0.5;
 }
 .back-button {
   background-color: #6c757d;
@@ -46,9 +57,101 @@ button {
   background-color: #ad0c00;
 }
 
-/*
-ロードマップ新規作成画面
-*/
+/* ------------------------------------------------------- */
+/* ログイン(トップ)画面 */
+.top-container {
+  display: flex;
+  justify-content: space-between;
+  background-color: #fff;
+  padding: 2rem 0.5rem;
+  border-radius: 3rem;
+}
+.ad-container {
+  min-height: 500px;
+}
+.login-container {
+  margin: 40px 10px 0;
+  padding: 10px;
+  border-radius: 3rem;
+  border: 1px solid #FF8B20;
+  background-color: #ff8c203f;
+  max-height: 280px;
+}
+.login-container p {
+  font-size: 1.5rem;
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.login-button {
+  margin-top: 0.5rem;
+  text-align: center;
+}
+
+/* ------------------------------------------------------- */
+/* マイページ画面 */
+.mypage-container {
+  background-color: #fff;
+  padding: 2rem 0.5rem;
+  border-radius: 3rem;
+  min-height: 600px;
+}
+.menu-container {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 2px solid #ccc;
+  padding: 0.5rem;
+}
+.roadmap-list {
+  padding: 0 1rem 1rem;
+}
+.roadmap-headhing {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+.roadmap-table {
+  margin-top: 10px;
+  border: 1px;
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+.col-1 { width: 50%; }
+.col-2 { width: 25%; }
+.col-3 { width: 25%; }
+
+.roadmap-row {
+  cursor: pointer;
+  border-radius: 1rem;
+  transition: background-color 0.3s ease;
+}
+.roadmap-row:hover {
+  background-color: #ff8c2085;
+}
+.roadmap-row td {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 200px;
+  padding: 2px;
+}
+
+
+/* ------------------------------------------------------- */
+/* ロードマップ新規作成画面 */
+.roadmap-new-container {
+  position: fixed;
+  height: 90vh;
+  overflow-y: auto;
+  left: 0;
+  right: 0;
+  background-color: #fff;
+  padding: 2rem 0.5rem;
+}
+
 #roadmap-form input[type="text"] {
   border: 1px solid #000;
   border-radius: 5px;
@@ -58,6 +161,9 @@ button {
 #roadmap-form .create-order {
   width: 2rem;
 }
+#roadmap-form .create-name {
+  width: 10rem;
+}
 
 .element-heading {
   margin-top: 30px;
@@ -66,7 +172,7 @@ button {
 }
 .parent-heading {
   width: 40%;
-  min-width: 435px;
+  min-width: 390px;
 }
 .child-heading {
   width: 60%;
@@ -113,6 +219,7 @@ button {
   border: none;
   padding: 5px 10px;
   cursor: pointer;
+  border-radius: 50rem;
 }
 
 .add-button {
@@ -121,60 +228,40 @@ button {
   border: none;
   padding: 5px 10px;
   cursor: pointer;
+  border-radius: 50rem;
 }
 
-
-/* */
+/* ------------------------------------------------------- */
 /* ロードマップ表示画面 */
-.roadmap-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
+.roadmap-container {
+  background-color: #fff;
+  padding: 2rem 0.5rem;
+  border-radius: 3rem;
+  min-height: 600px;
 }
-
-.roadmap-info {
-    text-align: left;
+.roadmap-top-button-container {
+  text-align: right;
+  border-bottom: 2px solid #ccc;
+  padding-bottom: 10px;
 }
-
-.roadmap-actions {
-    display: flex;
+.roadmap-title-container h1{
+  margin-top: 20px;
+  padding: 1px 10px;
+  width: 500px;
 }
-
-.roadmap-actions .button {
-    margin-left: 10px;
+.roadmap-info-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 5px;
+  flex-wrap: nowrap;
 }
-
-.roadmap-content {
-    display: flex;
+.roadmap-title {
+  min-width: 100px;
+  flex-shrink: 0;
 }
-
-.parent-elements {
-    width: 30%;
-    border-right: 1px solid #ccc;
-    padding-right: 20px;
+.add-button-container {
+  flex-shrink: 0;
 }
-
-.parent-element {
-    margin-bottom: 20px;
-}
-
-.parent-element .element-name {
-    border: 1px solid #ccc;
-    padding: 10px;
-    text-align: center;
-}
-
-.child-elements {
-    margin-left: 20px;
-}
-
-.child-element {
-    margin-bottom: 10px;
-}
-
-.child-element .element-name {
-    border: 1px solid #ccc;
-    padding: 10px;
-    text-align: center;
+.canvas-area {
+  margin-top: 10px;
 }

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ロードマップ</title>
+    <title>ロードマップ表示画面</title>
 	<!-- リセットCSS -->
 	<link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
 	<!-- オリジナルCSS -->
@@ -11,42 +11,51 @@
     <script src="js/script.js" defer></script>
 </head>
 <body>
-  <!-- 上部ボタン -->
-  <div class="top-buttons">
-    <button class="btn mypage">マイページ</button>
-    <button class="btn copy">コピー</button>
-    <button class="delete-button delete">削除</button>
-  </div>
-
-  <!-- タイトルと日付 -->
-  <div class="title">
-    <h1>ロードマップタイトル</h1>
-    <p>作成日時：XXXX/XX/XX</p>
-    <p>更新日時：XXXX/XX/XX</p>
-  </div>
-
-  <!-- 親要素と子要素 -->
-  <div class="roadmap">
-    <div class="parent-element">
-      <div class="box parent">親要素1</div>
-      <div class="line"></div>
-      <div class="box child">子要素1</div>
-      <div class="box child">子要素2</div>
+  <div class="roadmap-container">
+    <!-- 上部ボタン -->
+    <div class="roadmap-top-button-container">
+      <button class="button back-button">マイページ</button>
+      <button class="button">コピー</button>
+      <button class="button delete-button">削除</button>
     </div>
-    <div class="parent-element">
-      <div class="box parent">親要素2</div>
+  
+    <!-- タイトルと日付 -->
+    <div class="roadmap-title-container">
+      <h1>ロードマップタイトル</h1>
+      <div class="roadmap-info-container">
+        <div class="roadmap-title">
+          <p>作成日時：XXXX/XX/XX</p>
+          <p>更新日時：XXXX/XX/XX</p>
+        </div>
+          <!-- 追加ボタン -->
+        <div class="add-button-container">
+          <button class="button">親要素の追加</button>
+          <button class="button">子要素の追加</button>
+        </div>
+      </div>
     </div>
-    <div class="parent-element">
-      <div class="box parent">親要素3</div>
-      <div class="line"></div>
-      <div class="box child">子要素1</div>
+  
+    <!-- 親要素と子要素 -->
+    <div class="canvas-area">
+      <div class="parent-element">
+        <div class="box parent">親要素1</div>
+        <div class="line"></div>
+        <div class="box child">子要素1</div>
+        <div class="box child">子要素2</div>
+      </div>
+      <div class="parent-element">
+        <div class="box parent">親要素2</div>
+      </div>
+      <div class="parent-element">
+        <div class="box parent">親要素3</div>
+        <div class="line"></div>
+        <div class="box child">子要素1</div>
+      </div>
     </div>
   </div>
+  
+  
 
-  <!-- 追加ボタン -->
-  <div class="add-buttons">
-    <button class="btn add-parent">親要素の追加</button>
-    <button class="btn add-child">子要素の追加</button>
-  </div>
+
 </body>
 </html>

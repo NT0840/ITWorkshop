@@ -30,11 +30,27 @@ public class RoadmapServlet extends HttpServlet {
 		String forwardPath = null;
 		// サーブレットクラスの動作を決定する「action」の値をリクエストパラメータから取得
 		String action = request.getParameter("action");
-		if(action == null) {
+		String select = request.getParameter("select");
+		
+		if(action == null) { // mypageから遷移してきた場合
 			forwardPath = "WEB-INF/jsp/roadmap.jsp";
 		} else if(action.equals("new")) {
 			forwardPath = "WEB-INF/jsp/roadmapNew.jsp";
 		}
+		
+		// マイページ画面から遷移してきた用の、表示するロードマップを特定してRoadmapIdインスタンスをセッションスコープに保存
+		if(select != null) {
+			int selectInt = Integer.parseInt(select);
+			HttpSession session = request.getSession();
+			List<Roadmap> roadmaps  = (ArrayList<Roadmap>)session.getAttribute("roadmaps");
+			for(Roadmap roadmap : roadmaps) {
+				if(selectInt == roadmap.getRoadmapId().getRoadmapId()) {
+					session.setAttribute("currentRoadmapId", roadmap.getRoadmapId());
+					break;
+				}
+			}
+		}
+		
 		// フォワード
 		RequestDispatcher dispatcher = request.getRequestDispatcher(forwardPath);
 		dispatcher.forward(request, response);

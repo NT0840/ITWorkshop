@@ -1,7 +1,6 @@
 let parentRowCount = 0;
 let childRowCounts = {}; // 親要素ごとの子要素カウンタ
-//const parentIndex = 0;
-//childRowCounts[parentIndex] = 0;
+childRowCounts[parentRowCount] = 0;
 
 function addParentRow() {
   const parentContainer = document.querySelector('.parent-container');
@@ -16,12 +15,6 @@ function addParentRow() {
   orderLabel.textContent = '作成順';
   const orderInput = document.createElement('input');
   orderInput.type = 'text';
-  orderInput.min = '1';
-  orderInput.max = '999';
-  orderInput.value = `${parentRowCount + 1}`;
-  orderInput.oninput = function() {
-    this.value = this.value.replace(/[^0-9]/g, ''); // 半角数字以外の入力を制限
-  };
   orderInput.id = `parent-order-${parentRowCount}`;
   orderInput.classList.add('create-order');
   orderInput.name = `parent-order-${parentRowCount}`;
@@ -33,6 +26,7 @@ function addParentRow() {
   const nameInput = document.createElement('input');
   nameInput.type = 'text';
   nameInput.id = `parent-name-${parentRowCount}`;
+  nameInput.classList.add('create-name');
   nameInput.name = `parent-name-${parentRowCount}`;
   nameInput.required = true;
 
@@ -89,12 +83,6 @@ function addChildRow(button) {
   childOrderLabel.textContent = '作成順';
   const childOrderInput = document.createElement('input');
   childOrderInput.type = 'text';
-  childOrderInput.min = '1';
-  childOrderInput.max = '999';
-  childOrderInput.value = `${childRowCounts[parentIndex] + 1}`;
-  childOrderInput.oninput = function() {
-    this.value = this.value.replace(/[^0-9]/g, ''); // 半角数字以外の入力を制限
-  };
   childOrderInput.classList.add('create-order');
   childOrderInput.id = `child-order-${parentIndex}-${childRowCounts[parentIndex]}`;
   childOrderInput.name = `child-order-${parentIndex}-${childRowCounts[parentIndex]}`;
@@ -106,6 +94,7 @@ function addChildRow(button) {
   const childNameInput = document.createElement('input');
   childNameInput.type = 'text';
   childNameInput.id = `child-name-${parentIndex}-${childRowCounts[parentIndex]}`;
+  childNameInput.classList.add('create-name');
   childNameInput.name = `child-name-${parentIndex}-${childRowCounts[parentIndex]}`;
   childNameInput.required = true;
 

@@ -26,6 +26,7 @@ function addParentRow() {
   const nameInput = document.createElement('input');
   nameInput.type = 'text';
   nameInput.id = `parent-name-${parentRowCount}`;
+  nameInput.classList.add('create-name');
   nameInput.name = `parent-name-${parentRowCount}`;
   nameInput.required = true;
 
@@ -93,6 +94,7 @@ function addChildRow(button) {
   const childNameInput = document.createElement('input');
   childNameInput.type = 'text';
   childNameInput.id = `child-name-${parentIndex}-${childRowCounts[parentIndex]}`;
+  childNameInput.classList.add('create-name');
   childNameInput.name = `child-name-${parentIndex}-${childRowCounts[parentIndex]}`;
   childNameInput.required = true;
 
