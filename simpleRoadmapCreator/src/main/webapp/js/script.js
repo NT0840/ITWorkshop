@@ -1,8 +1,3 @@
-document.addEventListener('DOMContentLoaded', function () {
-      MicroModal.init();
-    });
-      
-
 document.addEventListener('DOMContentLoaded', function() {
     const table = document.getElementById('roadmap-table');
     table.addEventListener('click', function(e) {

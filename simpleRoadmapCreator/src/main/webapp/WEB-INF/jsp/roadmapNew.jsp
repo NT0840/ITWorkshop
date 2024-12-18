@@ -14,7 +14,7 @@
 		<h1>ロードマップの新規作成</h1>
 		<form id="roadmap-form" action="RoadmapServlet" method="POST">
 			<input type="hidden" name="action" value="newRoadmap">
-			<label for="roadmap-name">ロードマップの名称：</label>
+			<label for="roadmap-name">名称：</label>
 			<input type="text" id="roadmap-name" name="roadmap-name" required>
 			<div class="parent-container">
 				<div class="element-heading">

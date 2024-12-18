@@ -1,42 +1,44 @@
- const svg = d3.select("svg");
+document.addEventListener('DOMContentLoaded', function () {
+      MicroModal.init();
+});      
+        
+// SVG領域の設定
+const width = 800;
+const height = 600;
 
-        // 長方形のデータ
-        const rectangles = [
-            { x: 100, y: 100, width: 150, height: 50 },
-            { x: 300, y: 200, width: 150, height: 50 },
-            { x: 500, y: 100, width: 150, height: 50 }
-        ];
+// <main class="roadmap-main">内にSVG要素を追加
+const svg = d3.select("main.roadmap-main")
+    .append("svg")
+    .attr("viewBox", "0 0 " + width + " " + height) // viewBoxを設定
+    .attr("preserveAspectRatio", "xMinYMin meet") // アスペクト比を維持
+    .attr("width", "100%") // 横幅を100%に設定
+    
+// 長方形の座標とサイズを変数に格納
+const rectX = 50; // 開始x座標
+const rectY = 50; // 開始y座標
+const rectWidth = 200; // 横幅
+const rectHeight = 80; // 縦幅
+const rectRadiusX = 30; // 角の丸み
+const rectRadiusY = 30; // 角の丸み
 
-        // 長方形を描画
-        svg.selectAll("rect")
-            .data(rectangles)
-            .enter()
-            .append("rect")
-            .attr("class", "rectangle")
-            .attr("x", d => d.x)
-            .attr("y", d => d.y)
-            .attr("width", d => d.width)
-            .attr("height", d => d.height);
+// SVG領域に長方形を描画
+svg.append("rect")
+    .attr("class", "rectangle") // CSSクラスを適用
+    .attr("x", rectX) // 開始x座標
+    .attr("y", rectY) // 開始y座標
+    .attr("width", rectWidth) // 横幅
+    .attr("height", rectHeight) // 縦幅
+    .attr("rx", rectRadiusX) // 縦幅
+    .attr("ry", rectRadiusY) // 縦幅
+            
+// テキスト要素を追加
+//const elementWidth = 
+svg.append("text")
+	.attr("class", "text") // CSSクラスを適用
+    .attr("x", rectX + rectWidth / 2) // テキストのx座標（長方形の中心）
+    .attr("y", rectY + rectHeight / 2) // テキストのy座標（長方形の中心）
+    .attr("dominant-baseline", "middle") // テキストを垂直方向に中央揃え
+    .text("中央揃え");
+    
 
-        // 線を描画する関数
-        function drawLine(x1, y1, x2, y2) {
-            svg.append("line")
-                .attr("class", "line")
-                .attr("x1", x1)
-                .attr("y1", y1)
-                .attr("x2", x2)
-                .attr("y2", y2);
-        }
-
-        // 長方形の中点を計算して線を引く
-        for (let i = 0; i < rectangles.length - 1; i++) {
-            const rect1 = rectangles[i];
-            const rect2 = rectangles[i + 1];
-
-            const midX1 = rect1.x + rect1.width / 2;
-            const midY1 = rect1.y + rect1.height;
-            const midX2 = rect2.x + rect2.width / 2;
-            const midY2 = rect2.y;
-
-            drawLine(midX1, midY1, midX2, midY2);
-        }
+    

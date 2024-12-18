@@ -11,7 +11,6 @@
 	<link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
 	<!-- オリジナルCSS -->
     <link rel="stylesheet" href="css/style.css">
-    <script src="js/script.js" defer></script>
 </head>
 <body>
 	<div class="top-container">

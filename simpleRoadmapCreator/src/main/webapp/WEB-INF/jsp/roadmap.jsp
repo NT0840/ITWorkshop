@@ -14,7 +14,6 @@
     <link rel="stylesheet" href="css/style.css">
     <script src="https://cdn.jsdelivr.net/npm/micromodal/dist/micromodal.min.js" defer></script>
     <script src="https://d3js.org/d3.v7.min.js" defer></script>
-    <script src="js/script.js" defer></script>
     <script src="js/roadmapWrite.js" defer></script>
 </head>
 <body>
@@ -43,7 +42,6 @@
     </div>
     
     <main class="roadmap-main">
-    	<svg width="800" height="600"></svg>
     </main>
   
   
