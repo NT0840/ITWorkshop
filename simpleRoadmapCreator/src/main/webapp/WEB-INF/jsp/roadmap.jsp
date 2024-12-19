@@ -14,7 +14,6 @@
     <link rel="stylesheet" href="css/style.css">
     <script src="https://cdn.jsdelivr.net/npm/micromodal/dist/micromodal.min.js" defer></script>
     <script src="https://d3js.org/d3.v7.min.js" defer></script>
-    <script src="js/roadmapWrite.js" defer></script>
 </head>
 <body>
   <div class="roadmap-container">
@@ -42,6 +41,7 @@
     </div>
     
     <main class="roadmap-main">
+    	<jsp:include page="roadmapWrite.jsp" />
     </main>
   
   

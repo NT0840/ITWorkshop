@@ -3,7 +3,7 @@ body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 20px;
-  background-color: #FF8B20;
+  background-color: #ff8b20;
 }
 .form {
   background-color: white;
@@ -36,7 +36,7 @@ select:focus {
 }
 
 .button {
-  background-color: #FF8B20;
+  background-color: #ff8b20;
   color: white;
   border: none;
   border-radius: 50rem;
@@ -234,7 +234,7 @@ select:focus {
 }
 
 .add-button {
-  background-color: #FF8B20;
+  background-color: #ff8b20;
   color: white;
   border: none;
   padding: 5px 10px;
@@ -297,17 +297,21 @@ select:focus {
 	  height: auto;
 	}
     .rectangle {
-      fill: #3da4ab; /* 長方形の中の色 */
-	  stroke: #0e9aa7; /* 線の色 */
-	  stroke-width: 4; /* 線の太さ */
+      fill: #ff8b20; /* 長方形の中の色 */
+	  stroke: #cc5500; /* 線の色 */
+	  stroke-width: 2; /* 線の太さ */
 	  border-radius: 3rem;;
 	}
 	.text {
 	  text-anchor : middle; /* テキストを水平方向に中央揃え */
-	  font-size: 2rem;
-	  color: #fff;
+	  font-size: 1rem;
+	  fill: #fff;
 	  font-weight: bold;
 	}
+	.line {
+      stroke: black;
+      stroke-width: 2;
+    }
 
 
 /* モーダル画面 */

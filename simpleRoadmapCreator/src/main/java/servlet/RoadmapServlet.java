@@ -8,6 +8,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
+import com.google.gson.Gson;
+
 import bo.RoadmapLogic;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
@@ -46,6 +48,7 @@ public class RoadmapServlet extends HttpServlet {
 			for(Roadmap roadmap : roadmaps) {
 				if(selectInt == roadmap.getRoadmapId().getRoadmapId()) {
 					session.setAttribute("currentRoadmapId", roadmap.getRoadmapId());
+					elementsToJson(roadmap, session);
 					break;
 				}
 			}
@@ -93,14 +96,12 @@ public class RoadmapServlet extends HttpServlet {
 					// "parent-order-X"と同列のparent-name-Xの値を取得
 					String parentName = request.getParameter("parent-name-" + parentIndex);
 
-					System.out.println("親要素の作成順ParentOrder：" + parentOrder);
 					// 重複する場合は末尾にputするためにbehindInsertを加算する
 					if(parentElementsMap.containsKey(parentOrder)) {
 						parentOrder += behindInsert;
 					}
 					ParentElement parentElement = new ParentElement(userId.getUserId(), roadmapId.getRoadmapId(), parentOrder, parentName, 0, "", now, now);
 					parentElementsMap.put(parentOrder, parentElement);
-					System.out.println("Mapに追加親要素：" +parentElement.getParentNum()+parentElement.getParentName());
 				}
 			}
 			
@@ -119,8 +120,6 @@ public class RoadmapServlet extends HttpServlet {
 					String childName = request.getParameter("child-name-" + parentIndex + "-" + childIndex);
 					int childTagNum = Integer.parseInt(request.getParameter("child-tag-" + parentIndex + "-" + childIndex));
 					
-					System.out.println("(子要素取得部分)親要素の作成順ParentOrder：" + parentOrder);
-					System.out.println("子要素の作成順ChildOrder：" + childOrder);
 					// 重複する場合は末尾にputするためにparentOrderにbehindInsertを加算する(ParentElementsMapに対応させる目的)
 					if(parentIndex != prevParentIndex && overlap.contains(parentOrder)) {
 						parentOrder += behindInsert;
@@ -138,12 +137,10 @@ public class RoadmapServlet extends HttpServlet {
 						}
 						innerMap.put(childOrder, childElement);
 						childElementsMap.put(parentOrder, innerMap);
-						System.out.println("Mapに追加子要素：" +childElement.getParentNum()+ childElement.getChildNum()+childElement.getChildName());
 					} else { // 子要素1つめの場合
 						Map<Integer, ChildElement> innerMapNew = new TreeMap<>();
 						innerMapNew.put(childOrder, childElement);
 						childElementsMap.put(parentOrder, innerMapNew);
-						System.out.println("Mapに追加子要素(初回)：" +childElement.getParentNum()+ childElement.getChildNum()+childElement.getChildName());
 					}
 					prevParentIndex = parentIndex;
 					overlap.add(parentOrder);
@@ -168,13 +165,12 @@ public class RoadmapServlet extends HttpServlet {
 			            entry.getValue().getParentUpdateAt()
 			        );
 				parentElements.add(parentElement);
-				System.out.println("Listに追加親要素：" +parentElement.getParentNum()+parentElement.getParentName());
 				
 				// 子要素, Mapに格納されているものを、キーが小さい順に値を取り出す
 				// 親要素に対応する子要素のMapを取り出す。存在しないならnull
 				Map<Integer, ChildElement> innerMap = childElementsMap.get(entry.getKey());
+				List<ChildElement> innerChildElements = new ArrayList<>();
 				if(innerMap != null) {
-					List<ChildElement> innerChildElements = new ArrayList<>();
 					for (Map.Entry<Integer, ChildElement> entryChild : innerMap.entrySet()) {
 						ChildElement childElement = new ChildElement(
 				                entryChild.getValue().getUserId(),
@@ -191,12 +187,11 @@ public class RoadmapServlet extends HttpServlet {
 						innerChildElements.add(childElement);
 						childCount++;
 					}
-					childElements.add(innerChildElements);
 				}
+				childElements.add(innerChildElements);
 				parentCount++;
 				childCount = 1;
 			}
-			
 
 			// Roadmapインスタンスを組み立ててスコープから取得したroadmapsにaddしてセッションスコープに保存
 			Roadmap roadmap = new Roadmap(roadmapId, parentElements, childElements);
@@ -206,11 +201,26 @@ public class RoadmapServlet extends HttpServlet {
 			// 表示中roadmapインスタンスとして、roadmapIdインスタンスをセッションスコープに保存
 			session.setAttribute("currentRoadmapId", roadmap.getRoadmapId());
 			
+			// 表示中roadmapインスタンスをJavaScriptで利用するためにJSON形式でセッションスコープに保存
+			elementsToJson(roadmap, session);
+			
 			// 組み立てたRoadmapインスタンスをデータベースに保存
-			Boolean isCreateRoadmap = roadmapLogic.createRoadmap(roadmap);			
+			Boolean isCreateRoadmap = roadmapLogic.createRoadmap(roadmap);
 		
 			RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/jsp/roadmap.jsp");
 			dispatcher.forward(request, response);
 		}
+	}
+	
+	private void elementsToJson(Roadmap roadmap, HttpSession session) {
+		Gson gson = new Gson();
+		List<ParentElement> parentElements = roadmap.getParentElements();
+		String parentElementsJson = gson.toJson(parentElements);
+		session.setAttribute("parentElementsJson", parentElementsJson);
+		
+		List<List<ChildElement>> childElements = roadmap.getChildElements();
+		String childElementsJson = gson.toJson(childElements);
+		session.setAttribute("childElementsJson", childElementsJson);
+		
 	}
 }

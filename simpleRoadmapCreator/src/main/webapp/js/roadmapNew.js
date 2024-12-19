@@ -16,6 +16,7 @@ function addParentRow() {
   const orderInput = document.createElement('input');
   orderInput.type = 'text';
   orderInput.id = `parent-order-${parentRowCount}`;
+  orderInput.value = parentRowCount + 1;
   orderInput.classList.add('create-order');
   orderInput.name = `parent-order-${parentRowCount}`;
   orderInput.required = true;
@@ -85,6 +86,7 @@ function addChildRow(button) {
   childOrderInput.type = 'text';
   childOrderInput.classList.add('create-order');
   childOrderInput.id = `child-order-${parentIndex}-${childRowCounts[parentIndex]}`;
+  childOrderInput.value = childRowCounts[parentIndex] + 1;
   childOrderInput.name = `child-order-${parentIndex}-${childRowCounts[parentIndex]}`;
   childOrderInput.required = true;
 
