@@ -12,21 +12,16 @@ document.addEventListener('DOMContentLoaded', function () {
     function truncateText(text, maxLength) {
    	return text.length > maxLength ? text.slice(0, maxLength) + "..." : text;
    	}
+    
+});
 
-	// 現在表示中のロードマップID(数値)の取得
-	<c:set var="roadmapIndex" value="${sessionScope.currentRoadmapId.roadmapId - 1}" />
-   	const roadmapId = <c:out value="${roadmapIndex}" />;
-
-   	// 現在表示中のロードマップの要素のリストを取得
-   	<c:set var="parentElementsJson" value="${sessionScope.parentElementsJson}" />
-   	<c:set var="childElementsJson" value="${sessionScope.childElementsJson}" />
-   	
-   	// JSONデータをJavaScript変数に格納
-    const parentElements = <c:out value="${parentElementsJson}" escapeXml="false" />; // JSTLを使用, エスケープを無効にする
-    const childElements = <c:out value="${childElementsJson}" escapeXml="false" />; // JSTLを使用
-   	
- 	// 長方形のデータを格納する配列
-   	let rectangles = [];
+window.onload = function() {
+	// JSONデータをJavaScript変数に格納
+    const parentElements = <c:out value="${sessionScope.parentElementsJson}" escapeXml="false" />; // JSTLを使用, エスケープを無効にする
+    const childElements = <c:out value="${sessionScope.childElementsJson}" escapeXml="false" />; // JSTLを使用
+    
+	// 長方形のデータを格納する配列
+	let rectangles = [];
 
     // SVG領域の設定
     const width = 800;
@@ -52,7 +47,9 @@ document.addEventListener('DOMContentLoaded', function () {
    	        height: rectHeight, 
    	        rx: rectRadiusX, 
    	        ry: rectRadiusY, 
-   	     	name: parentElements[i].parentName
+   	        type: "parent",
+   	     	name: parentElements[i].parentName, 
+   	        modalTrigger: "modalParent" + parentElements[i].parentNum
    	    });
    	    if (childElements[i] && childElements[i].length > 0) { // 左辺はi番目の要素が存在するか
    	   	    for (let j = 0; j < childElements[i].length; j++) {
@@ -63,7 +60,9 @@ document.addEventListener('DOMContentLoaded', function () {
 	     	        height: rectHeight, 
 	     	        rx: rectRadiusX, 
 	     	        ry: rectRadiusY, 
-	     	     	name: childElements[i][j].childName
+	     	       type: "child",
+	     	     	name: childElements[i][j].childName, 
+	     	     	modalTrigger: "modalChild" + childElements[i][j].childNum
      	    	});
  	 	    	yOffset += (rectHeight + rectMarginTop);
    	   	    }
@@ -92,16 +91,19 @@ document.addEventListener('DOMContentLoaded', function () {
    	   	  // 図形を追加
    	   	  d3.select(this)
     	    .append("rect")
-	   	    .attr("class", "rectangle") // CSSクラスを適用
+	   	    .attr("class", "rectangle-"+d.type+"-element")
 	   	    .attr("x", d => d.x) // 開始x座標
 	   	    .attr("y", d => d.y) // 開始y座標
 	   	    .attr("width", d => d.width) // 横幅
 	   	    .attr("height", d => d.height) // 縦幅
 	   	    .attr("rx", d => d.rx)  // 角の丸みを追加
-	        .attr("ry", d => d.ry);  // 角の丸みを追加
+	        .attr("ry", d => d.ry)  // 角の丸みを追加
+	        .attr("data-micromodal-trigger", d.modalTrigger)
+   	  		.on("click", (event, d) => {
+   	  			MicroModal.show(d.modalTrigger);
+	  		});
 
 	       // テキストを追加
-	       <c:set var="count" value= "i" />
 	       d3.select(this)
             .append("text")
             .attr("class", "text")
@@ -109,14 +111,18 @@ document.addEventListener('DOMContentLoaded', function () {
             .attr("y", d.y + d.height / 2)
             .attr("dominant-baseline", "middle")
             .attr("text-anchor", "middle")
-            .text(d => d.name);
+            .text(d => d.name)
+	        .attr("data-micromodal-trigger", d.modalTrigger)
+  	  		.on("click", (event, d) => {
+  	  			MicroModal.show(d.modalTrigger);
+	  		});
    	  });
 
  	// 大項目と子要素を結ぶ線を描画する処理
-    yOffset = 50; // Yオフセットリセット（最初から計算）
+    yOffset = 0; // Yオフセットリセット（最初から計算）
     
     for (let i = 0; i < parentElements.length; i++) {
-        let parentY = rectY + yOffset - (rectHeight / 2); // 大項目中央Y座標
+        const parentY = rectY + yOffset + (rectHeight / 2); // 大項目中央Y座標
         
         if (childElements[i] && childElements[i].length > 0) { 
             for (let j = 0; j < childElements[i].length; j++) {
@@ -135,19 +141,16 @@ document.addEventListener('DOMContentLoaded', function () {
         	yOffset += (rectHeight + rectMarginTop); // 次の大項目へのオフセット加算
         }
 
+        const parentYNext = rectY + yOffset + rectHeight / 2;
+
         if (parentElements[i + 1]) {
         	svg.append("line")
 	            .attr("class", "line")
 	            .attr("x1", rectX + (rectWidth / 2)) // 大項目の中央X座標
 	            .attr("y1", parentY + (rectHeight / 2)) // 現在の大項目の下辺
 	            .attr("x2", rectX + (rectWidth / 2)) // 次の大項目の中央X座標
-	            .attr("y2", parentY + yOffset); // 次の大項目の上端
+	            .attr("y2", parentYNext - (rectHeight / 2)); // 次の大項目の上端
          }
-
-        
-        
-        
     }
-	  
-});      
+};
 </script>

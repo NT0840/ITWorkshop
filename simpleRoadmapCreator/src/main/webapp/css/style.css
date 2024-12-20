@@ -275,7 +275,7 @@ select:focus {
   margin-top: 5px;
   flex-wrap: nowrap;
 }
-.roadmap-title {
+.roadmap-time {
   min-width: 100px;
   flex-shrink: 0;
 }
@@ -293,20 +293,36 @@ select:focus {
 	  border-radius: 3rem;
 	  background-color: #ffeeddb9;
 	  width: auto;
-	  max-width: 100%;
+	  max-width: 900px;
 	  height: auto;
 	}
-    .rectangle {
-      fill: #ff8b20; /* 長方形の中の色 */
-	  stroke: #cc5500; /* 線の色 */
-	  stroke-width: 2; /* 線の太さ */
+    .rectangle-parent-element, 
+    .rectangle-child-element {
+	  stroke-width: 1; /* 線の太さ */
 	  border-radius: 3rem;;
+	  cursor: pointer;
+	  pointer-events: all;
+	  opacity: 1;
+  	  transition: opacity 0.3s ease;
+	}
+    .rectangle-parent-element {
+      fill: #ff8b20; /* 長方形の中の色 */
+      stroke: #cc5500; /* 線の色 */
+	}
+    .rectangle-child-element {
+      fill: #ffaa77; /* 長方形の中の色 */
+      stroke: #cc5500; /* 線の色 */
+	}
+	.rectangle-parent-element:hovor, 
+    .rectangle-child-element:hovor {
+	  opacity: 0.5;
 	}
 	.text {
 	  text-anchor : middle; /* テキストを水平方向に中央揃え */
 	  font-size: 1rem;
 	  fill: #fff;
 	  font-weight: bold;
+	  cursor: pointer;
 	}
 	.line {
       stroke: black;
@@ -355,8 +371,66 @@ select:focus {
 	  border-radius: 1rem;
 	}
 	.modal-footer {
+	  margin-top: 10px;
 	  display: flex;
       justify-content: center;
+	}
+	.parent-header, 
+	.child-header {
+	  text-align: left;
+	}
+	.modal-parent, 
+	.modal-child {
+	  display: flex;
+	  flex-direction: column;
+	}
+	.parent-time, 
+	.child-time {
+	  display: flex;
+	  justify-content: left;
+	  font-size: 0.8rem;
+	}
+	.parent-time p, 
+	.child-time p {
+	  margin-right: 10px;
+	}
+	.parent-content-upside, 
+	.child-content-upside {
+	  margin-top: 10px;
+	  display: flex;
+	  text-align: left;
+	  flex-direction: column;
+	  border-bottom: 2px solid #ccc;
+  	  padding-bottom: 10px;
+	}
+	.parent-content-upside label, 
+	.child-content-upside label {
+	  margin-top: 10px;
+	  font-weight: 500;
+	}
+	.parent-content-downside, 
+	.child-content-downside {
+	  margin-top: 10px;
+	  display: flex;
+	  text-align: left;
+	  flex-direction: column
+	}
+	.parent-content-downside label, 
+	.child-content-downside label {
+	  font-weight: 500;
+	}
+	.parent-content-downside textarea, 
+	.child-content-downside textarea {
+	  resize: none;
+	  field-sizing: content; /* コンテンツに基づいてサイズを調整 */
+      min-height: 50vh; /* 最小高さ */
+      max-width: 55vh;
+	}
+	.parent-textarea-container, 
+	.child-textarea-container {
+	  padding: 10px;
+	  border: 1px solid #ccc;
+	  border-radius: 1rem;
 	}
 
 
