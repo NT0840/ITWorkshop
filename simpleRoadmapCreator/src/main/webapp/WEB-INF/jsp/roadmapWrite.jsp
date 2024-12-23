@@ -4,17 +4,15 @@
 <%@ page import="com.google.gson.Gson" %>
 <%@ page import="model.*, java.util.*" %>
 
+
 <script>
 document.addEventListener('DOMContentLoaded', function () {
     MicroModal.init();
-
-    //特定文字数以上を「...」に置き換える
-    function truncateText(text, maxLength) {
-   	return text.length > maxLength ? text.slice(0, maxLength) + "..." : text;
-   	}
-    
 });
-
+//特定文字数以上を「...」に置き換える
+function truncateText(text, maxLength) {
+	return text.length > maxLength ? text.slice(0, maxLength) + "..." : text;
+}
 window.onload = function() {
 	// JSONデータをJavaScript変数に格納
     const parentElements = <c:out value="${sessionScope.parentElementsJson}" escapeXml="false" />; // JSTLを使用, エスケープを無効にする
@@ -48,7 +46,7 @@ window.onload = function() {
    	        rx: rectRadiusX, 
    	        ry: rectRadiusY, 
    	        type: "parent",
-   	     	name: parentElements[i].parentName, 
+   	     	name: truncateText(parentElements[i].parentName, 18), 
    	        modalTrigger: "modalParent" + parentElements[i].parentNum
    	    });
    	    if (childElements[i] && childElements[i].length > 0) { // 左辺はi番目の要素が存在するか
@@ -60,9 +58,9 @@ window.onload = function() {
 	     	        height: rectHeight, 
 	     	        rx: rectRadiusX, 
 	     	        ry: rectRadiusY, 
-	     	       type: "child",
-	     	     	name: childElements[i][j].childName, 
-	     	     	modalTrigger: "modalChild" + childElements[i][j].childNum
+	     	        type: "child",
+	     	     	name: truncateText(childElements[i][j].childName, 18), 
+	     	     	modalTrigger: "modalChild" + parentElements[i].parentNum + "-" + childElements[i][j].childNum
      	    	});
  	 	    	yOffset += (rectHeight + rectMarginTop);
    	   	    }
@@ -153,4 +151,7 @@ window.onload = function() {
          }
     }
 };
+
+
+
 </script>

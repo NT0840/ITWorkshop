@@ -10,17 +10,11 @@
                 <mxCell id="2909" value="" style="rounded=0;whiteSpace=wrap;html=1;labelBackgroundColor=none;fontSize=11;fillColor=none;dashed=1;container=0;strokeColor=#FF99CC;" parent="2908" vertex="1">
                     <mxGeometry y="2.7692307692307696" width="1086" height="597.2307692307693" as="geometry"/>
                 </mxCell>
-                <mxCell id="2910" value="&lt;font style=&quot;font-size: 11px;&quot;&gt;a)-2&amp;nbsp;：ロードマップコピー&lt;/font&gt;" style="text;strokeColor=none;align=left;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;labelBackgroundColor=none;fontSize=10;" parent="2908" vertex="1">
-                    <mxGeometry width="276" height="18.461538461538463" as="geometry"/>
-                </mxCell>
                 <mxCell id="2062" value="" style="group" parent="0" vertex="1" connectable="0">
                     <mxGeometry x="-236" y="80" width="1086" height="740" as="geometry"/>
                 </mxCell>
                 <mxCell id="2063" value="" style="rounded=0;whiteSpace=wrap;html=1;labelBackgroundColor=none;fontSize=11;fillColor=none;dashed=1;container=0;strokeColor=#FF99CC;" parent="2062" vertex="1">
                     <mxGeometry y="3.4153846153846157" width="1086" height="736.5846153846154" as="geometry"/>
-                </mxCell>
-                <mxCell id="2064" value="&lt;font style=&quot;font-size: 11px;&quot;&gt;a)-1 ：ロードマップ削除&lt;/font&gt;" style="text;strokeColor=none;align=left;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;labelBackgroundColor=none;fontSize=10;" parent="2062" vertex="1">
-                    <mxGeometry width="276" height="22.76923076923077" as="geometry"/>
                 </mxCell>
                 <mxCell id="2109" value="" style="text;strokeColor=default;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;labelBackgroundColor=none;fontSize=10;dashed=1;strokeWidth=2;perimeterSpacing=0;dashPattern=1 1;glass=1;container=0;" parent="2062" vertex="1">
                     <mxGeometry x="490" y="47.88" width="590" height="682.12" as="geometry"/>
@@ -219,8 +213,8 @@
                 <mxCell id="2001" value="&lt;span style=&quot;font-size: 11px;&quot;&gt;Servlet&lt;/span&gt;" style="text;strokeColor=none;align=left;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;labelBackgroundColor=none;fontSize=10;" parent="1999" vertex="1">
                     <mxGeometry x="17" width="46" height="20" as="geometry"/>
                 </mxCell>
-                <mxCell id="2002" value="&lt;span style=&quot;font-size: 11px;&quot;&gt;保存(roadmapList)&lt;br&gt;削除(currentRoadmap)&lt;br&gt;&lt;/span&gt;" style="text;strokeColor=none;align=left;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;labelBackgroundColor=none;fontSize=10;" parent="fxQP5-2Rpk5uUzQ9qzvW-1" vertex="1">
-                    <mxGeometry x="-80" y="403.25" width="120" height="30" as="geometry"/>
+                <mxCell id="2002" value="&lt;span style=&quot;font-size: 11px;&quot;&gt;保存(roadmaps)&lt;br&gt;削除(currentRoadmapId)&lt;br&gt;&lt;/span&gt;" style="text;strokeColor=none;align=left;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;labelBackgroundColor=none;fontSize=10;" parent="fxQP5-2Rpk5uUzQ9qzvW-1" vertex="1">
+                    <mxGeometry x="-80" y="403.25" width="130" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="2003" value="" style="endArrow=async;html=1;rounded=0;shadow=1;labelBackgroundColor=default;strokeColor=#82b366;fontFamily=Helvetica;fontSize=10;fontColor=#FFFFFF;shape=connector;strokeWidth=1;startArrow=none;startFill=0;fillColor=#d5e8d4;jumpStyle=line;jumpSize=10;entryX=0.75;entryY=1;entryDx=0;entryDy=0;dashed=1;endFill=1;" parent="fxQP5-2Rpk5uUzQ9qzvW-1" target="2012" edge="1">
                     <mxGeometry width="50" height="50" relative="1" as="geometry">
@@ -306,13 +300,13 @@
                         </Array>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="2080" value="取得&lt;span style=&quot;font-size: 11px;&quot;&gt;(roadmapList)&lt;/span&gt;" style="text;strokeColor=none;align=left;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;labelBackgroundColor=none;fontSize=10;" parent="fxQP5-2Rpk5uUzQ9qzvW-1" vertex="1">
+                <mxCell id="2080" value="取得&lt;span style=&quot;font-size: 11px;&quot;&gt;(roadmaps)&lt;/span&gt;" style="text;strokeColor=none;align=left;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;labelBackgroundColor=none;fontSize=10;" parent="fxQP5-2Rpk5uUzQ9qzvW-1" vertex="1">
                     <mxGeometry x="-140" y="449.13" width="30" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="2094" value="" style="group" parent="fxQP5-2Rpk5uUzQ9qzvW-1" vertex="1" connectable="0">
                     <mxGeometry x="560" y="140" width="99.75" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="2095" value="RoadmapIdsDAO&lt;br&gt;deleteBy&lt;span style=&quot;text-align: left;&quot;&gt;RoadmapId&lt;/span&gt;()" style="rounded=0;whiteSpace=wrap;html=1;labelBackgroundColor=none;fillStyle=auto;strokeColor=#6F0000;fontFamily=Helvetica;fontSize=10;fontColor=#ffffff;fillColor=#a20025;container=0;" parent="2094" vertex="1">
+                <mxCell id="2095" value="RoadmapIdsDAO&lt;br&gt;delete()" style="rounded=0;whiteSpace=wrap;html=1;labelBackgroundColor=none;fillStyle=auto;strokeColor=#6F0000;fontFamily=Helvetica;fontSize=10;fontColor=#ffffff;fillColor=#a20025;container=0;" parent="2094" vertex="1">
                     <mxGeometry y="20" width="99.75000000000003" height="25" as="geometry"/>
                 </mxCell>
                 <mxCell id="2096" value="&lt;span style=&quot;font-size: 11px;&quot;&gt;DAO&lt;/span&gt;" style="text;strokeColor=none;align=left;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;labelBackgroundColor=none;fontSize=10;" parent="2094" vertex="1">
@@ -368,13 +362,13 @@
                 <mxCell id="2008" value="&lt;font color=&quot;#000000&quot;&gt;&lt;br&gt;&lt;/font&gt;" style="shape=callout;whiteSpace=wrap;html=1;perimeter=calloutPerimeter;fontSize=11;fillColor=#dae8fc;strokeColor=#6c8ebf;base=19;position2=0.47;size=30;position=0.47;align=left;rotation=90;" parent="2462" vertex="1">
                     <mxGeometry x="80.39500000000004" y="-78.41999999999999" width="42.88" height="203.67" as="geometry"/>
                 </mxCell>
-                <mxCell id="2009" value="取得したcurrentRoadmapを引数として渡して、データベース上の該当ロードマップの内容を削除" style="text;strokeColor=none;align=left;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;labelBackgroundColor=none;fontSize=10;fontColor=#000000;" parent="2462" vertex="1">
+                <mxCell id="2009" value="取得したcurrentRoadmapIdを引数として渡して、データベース上の該当ロードマップの内容を削除" style="text;strokeColor=none;align=left;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;labelBackgroundColor=none;fontSize=10;fontColor=#000000;" parent="2462" vertex="1">
                     <mxGeometry x="35.795000000000016" width="167.68" height="52.28" as="geometry"/>
                 </mxCell>
                 <mxCell id="2464" value="" style="group" parent="fxQP5-2Rpk5uUzQ9qzvW-1" vertex="1" connectable="0">
                     <mxGeometry x="510" y="260" width="149.75" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="2465" value="RoadmapIdsDAO&lt;br&gt;updateAfterDeleteBy&lt;span style=&quot;text-align: left;&quot;&gt;RoadmapId&lt;/span&gt;()" style="rounded=0;whiteSpace=wrap;html=1;labelBackgroundColor=none;fillStyle=auto;strokeColor=#6F0000;fontFamily=Helvetica;fontSize=10;fontColor=#ffffff;fillColor=#a20025;container=0;" parent="2464" vertex="1">
+                <mxCell id="2465" value="RoadmapIdsDAO&lt;br&gt;updateAfterDelete()" style="rounded=0;whiteSpace=wrap;html=1;labelBackgroundColor=none;fillStyle=auto;strokeColor=#6F0000;fontFamily=Helvetica;fontSize=10;fontColor=#ffffff;fillColor=#a20025;container=0;" parent="2464" vertex="1">
                     <mxGeometry y="20" width="149.75000000000003" height="25" as="geometry"/>
                 </mxCell>
                 <mxCell id="2466" value="&lt;span style=&quot;font-size: 11px;&quot;&gt;DAO&lt;/span&gt;" style="text;strokeColor=none;align=left;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;labelBackgroundColor=none;fontSize=10;" parent="2464" vertex="1">
@@ -605,7 +599,7 @@
                 <mxCell id="2525" value="&lt;font color=&quot;#000000&quot;&gt;&lt;br&gt;&lt;/font&gt;" style="shape=callout;whiteSpace=wrap;html=1;perimeter=calloutPerimeter;fontSize=11;fillColor=#dae8fc;strokeColor=#6c8ebf;base=19;position2=0.47;size=30;position=0.47;align=left;rotation=90;" parent="2524" vertex="1">
                     <mxGeometry x="67.84" y="-65.88" width="67.97" height="203.67" as="geometry"/>
                 </mxCell>
-                <mxCell id="2526" value="取得したroadmapListからcurrentRoadmapの位置の要素をremove()で削除、スコープに保存&lt;br&gt;また、スコープからcurrentRoadmapを削除" style="text;strokeColor=none;align=left;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;labelBackgroundColor=none;fontSize=10;fontColor=#000000;" parent="2524" vertex="1">
+                <mxCell id="2526" value="削除したRoadmapをroadmapsからremove、スコープに上書き保存&lt;br&gt;また、スコープからcurrentRoadmapを削除" style="text;strokeColor=none;align=left;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;labelBackgroundColor=none;fontSize=10;fontColor=#000000;" parent="2524" vertex="1">
                     <mxGeometry x="35.8" width="167.68" height="70" as="geometry"/>
                 </mxCell>
                 <mxCell id="2769" value="" style="group" parent="fxQP5-2Rpk5uUzQ9qzvW-1" vertex="1" connectable="0">
@@ -658,8 +652,8 @@
                 <mxCell id="2795" value="&lt;span style=&quot;font-size: 11px;&quot;&gt;Servlet&lt;/span&gt;" style="text;strokeColor=none;align=left;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;labelBackgroundColor=none;fontSize=10;" parent="2793" vertex="1">
                     <mxGeometry x="17" width="46" height="20" as="geometry"/>
                 </mxCell>
-                <mxCell id="2796" value="&lt;span style=&quot;font-size: 11px;&quot;&gt;保存(roadmapList)&lt;br&gt;削除(currentRoadmap)&lt;br&gt;&lt;/span&gt;" style="text;strokeColor=none;align=left;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;labelBackgroundColor=none;fontSize=10;" parent="fxQP5-2Rpk5uUzQ9qzvW-1" vertex="1">
-                    <mxGeometry x="-82" y="1163.25" width="120" height="30" as="geometry"/>
+                <mxCell id="2796" value="&lt;span style=&quot;font-size: 11px;&quot;&gt;保存(roadmaps)&lt;/span&gt;&lt;br style=&quot;font-size: 11px;&quot;&gt;&lt;span style=&quot;font-size: 11px;&quot;&gt;削除(currentRoadmapId)&lt;/span&gt;&lt;span style=&quot;font-size: 11px;&quot;&gt;&lt;br&gt;&lt;/span&gt;" style="text;strokeColor=none;align=left;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;labelBackgroundColor=none;fontSize=10;" parent="fxQP5-2Rpk5uUzQ9qzvW-1" vertex="1">
+                    <mxGeometry x="-82" y="1163.25" width="132" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="2797" value="" style="endArrow=async;html=1;rounded=0;shadow=1;labelBackgroundColor=default;strokeColor=#82b366;fontFamily=Helvetica;fontSize=10;fontColor=#FFFFFF;shape=connector;strokeWidth=1;startArrow=none;startFill=0;fillColor=#d5e8d4;jumpStyle=line;jumpSize=10;entryX=0.75;entryY=1;entryDx=0;entryDy=0;dashed=1;endFill=1;" parent="fxQP5-2Rpk5uUzQ9qzvW-1" target="2803" edge="1">
                     <mxGeometry width="50" height="50" relative="1" as="geometry">
@@ -747,7 +741,7 @@
                         </Array>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="2817" value="取得&lt;span style=&quot;font-size: 11px;&quot;&gt;(roadmapList)&lt;/span&gt;" style="text;strokeColor=none;align=left;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;labelBackgroundColor=none;fontSize=10;" parent="fxQP5-2Rpk5uUzQ9qzvW-1" vertex="1">
+                <mxCell id="2817" value="取得&lt;span style=&quot;font-size: 11px;&quot;&gt;(roadmaps)&lt;/span&gt;" style="text;strokeColor=none;align=left;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;labelBackgroundColor=none;fontSize=10;" parent="fxQP5-2Rpk5uUzQ9qzvW-1" vertex="1">
                     <mxGeometry x="-142" y="1209.13" width="30" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="2828" value="" style="group" parent="fxQP5-2Rpk5uUzQ9qzvW-1" vertex="1" connectable="0">
@@ -809,7 +803,7 @@
                 <mxCell id="2858" value="" style="group" parent="fxQP5-2Rpk5uUzQ9qzvW-1" vertex="1" connectable="0">
                     <mxGeometry x="567.05" y="1184" width="99.75" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="2859" value="ParentElementsDAO&lt;br&gt;insertByRoadmap()" style="rounded=0;whiteSpace=wrap;html=1;labelBackgroundColor=none;fillStyle=auto;strokeColor=#6F0000;fontFamily=Helvetica;fontSize=10;fontColor=#ffffff;fillColor=#a20025;container=0;" parent="2858" vertex="1">
+                <mxCell id="2859" value="ParentElementsDAO&lt;br&gt;insertByList()" style="rounded=0;whiteSpace=wrap;html=1;labelBackgroundColor=none;fillStyle=auto;strokeColor=#6F0000;fontFamily=Helvetica;fontSize=10;fontColor=#ffffff;fillColor=#a20025;container=0;" parent="2858" vertex="1">
                     <mxGeometry y="20" width="99.75000000000003" height="25" as="geometry"/>
                 </mxCell>
                 <mxCell id="2860" value="&lt;span style=&quot;font-size: 11px;&quot;&gt;DAO&lt;/span&gt;" style="text;strokeColor=none;align=left;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;labelBackgroundColor=none;fontSize=10;" parent="2858" vertex="1">
@@ -866,7 +860,7 @@
                 <mxCell id="2883" value="" style="group" parent="fxQP5-2Rpk5uUzQ9qzvW-1" vertex="1" connectable="0">
                     <mxGeometry x="567.05" y="1304" width="99.75" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="2884" value="ChildElementsDAO&lt;br&gt;insertByRoadmap()" style="rounded=0;whiteSpace=wrap;html=1;labelBackgroundColor=none;fillStyle=auto;strokeColor=#6F0000;fontFamily=Helvetica;fontSize=10;fontColor=#ffffff;fillColor=#a20025;container=0;" parent="2883" vertex="1">
+                <mxCell id="2884" value="ChildElementsDAO&lt;br&gt;insertByList()" style="rounded=0;whiteSpace=wrap;html=1;labelBackgroundColor=none;fillStyle=auto;strokeColor=#6F0000;fontFamily=Helvetica;fontSize=10;fontColor=#ffffff;fillColor=#a20025;container=0;" parent="2883" vertex="1">
                     <mxGeometry y="20" width="99.75000000000003" height="25" as="geometry"/>
                 </mxCell>
                 <mxCell id="2885" value="&lt;span style=&quot;font-size: 11px;&quot;&gt;DAO&lt;/span&gt;" style="text;strokeColor=none;align=left;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;labelBackgroundColor=none;fontSize=10;" parent="2883" vertex="1">
@@ -908,7 +902,7 @@
                 <mxCell id="2893" value="&lt;font color=&quot;#000000&quot;&gt;&lt;br&gt;&lt;/font&gt;" style="shape=callout;whiteSpace=wrap;html=1;perimeter=calloutPerimeter;fontSize=11;fillColor=#dae8fc;strokeColor=#6c8ebf;base=19;position2=0.47;size=30;position=0.47;align=left;rotation=90;" parent="2892" vertex="1">
                     <mxGeometry x="56.19" y="-54.23" width="82.81" height="195.21" as="geometry"/>
                 </mxCell>
-                <mxCell id="2894" value="取得したroadmapListからcurrentRoadmapの位置の要素を、新規宣言したRoadmapインスタンスにコピー、roadmapListの要素数をroadmapIdとして各所にセット、roadmapListにappend()" style="text;strokeColor=none;align=left;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;labelBackgroundColor=none;fontSize=10;fontColor=#000000;" parent="2892" vertex="1">
+                <mxCell id="2894" value="取得したroadmapsからcurrentRoadmapIdの位置の要素を、新規宣言したRoadmapインスタンスにコピー、roadmapIdの最大値+1をroadmapIdとして各所にセット" style="text;strokeColor=none;align=left;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;labelBackgroundColor=none;fontSize=10;fontColor=#000000;" parent="2892" vertex="1">
                     <mxGeometry x="34.8" y="4" width="155.2" height="80" as="geometry"/>
                 </mxCell>
                 <mxCell id="2895" value="" style="group" parent="fxQP5-2Rpk5uUzQ9qzvW-1" vertex="1" connectable="0">
@@ -929,6 +923,12 @@
                 </mxCell>
                 <mxCell id="2899" value="フォワード" style="text;strokeColor=default;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;labelBackgroundColor=none;fontSize=10;" parent="fxQP5-2Rpk5uUzQ9qzvW-1" vertex="1">
                     <mxGeometry x="52.5" y="1244.63" width="59" height="15" as="geometry"/>
+                </mxCell>
+                <mxCell id="2918" value="&lt;font style=&quot;font-size: 11px;&quot;&gt;a)-1 ：ロードマップ削除&lt;/font&gt;" style="text;strokeColor=none;align=left;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;labelBackgroundColor=none;fontSize=10;" parent="fxQP5-2Rpk5uUzQ9qzvW-1" vertex="1">
+                    <mxGeometry x="-236" y="80" width="276" height="22.76923076923077" as="geometry"/>
+                </mxCell>
+                <mxCell id="2919" value="&lt;font style=&quot;font-size: 11px;&quot;&gt;a)-2&amp;nbsp;：ロードマップコピー&lt;/font&gt;" style="text;strokeColor=none;align=left;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;labelBackgroundColor=none;fontSize=10;" parent="fxQP5-2Rpk5uUzQ9qzvW-1" vertex="1">
+                    <mxGeometry x="-238" y="840" width="276" height="18.461538461538463" as="geometry"/>
                 </mxCell>
             </root>
         </mxGraphModel>

@@ -1,17 +1,14 @@
 <mxfile host="65bd71144e">
     <diagram name="基本アーキテクチャ図(2)" id="kNQ7hPWD0Lw1mM555jFB">
-        <mxGraphModel dx="1212" dy="1187" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+        <mxGraphModel dx="1786" dy="1179" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
             <root>
                 <mxCell id="fxQP5-2Rpk5uUzQ9qzvW-0"/>
-                <mxCell id="0" value="枠組み" style="locked=1;" parent="fxQP5-2Rpk5uUzQ9qzvW-0"/>
+                <mxCell id="0" value="枠組み" style="" parent="fxQP5-2Rpk5uUzQ9qzvW-0"/>
                 <mxCell id="1947" value="" style="group" parent="0" vertex="1" connectable="0">
                     <mxGeometry x="-236" y="80" width="1086" height="650" as="geometry"/>
                 </mxCell>
                 <mxCell id="1" value="" style="rounded=0;whiteSpace=wrap;html=1;labelBackgroundColor=none;fontSize=11;fillColor=none;dashed=1;container=0;strokeColor=#FF99CC;" parent="1947" vertex="1">
                     <mxGeometry y="3" width="1086" height="647" as="geometry"/>
-                </mxCell>
-                <mxCell id="9" value="&lt;font style=&quot;font-size: 11px;&quot;&gt;a) ：ロードマップ新規作成&lt;/font&gt;" style="text;strokeColor=none;align=left;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;labelBackgroundColor=none;fontSize=10;" parent="1947" vertex="1">
-                    <mxGeometry width="276" height="20" as="geometry"/>
                 </mxCell>
                 <mxCell id="1950" value="取得" style="text;strokeColor=none;align=left;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;labelBackgroundColor=none;fontSize=10;" parent="1947" vertex="1">
                     <mxGeometry x="456" y="520" width="30" height="30" as="geometry"/>
@@ -462,6 +459,9 @@
                             <mxPoint x="250" y="632"/>
                         </Array>
                     </mxGeometry>
+                </mxCell>
+                <mxCell id="1951" value="&lt;font style=&quot;font-size: 11px;&quot;&gt;a) ：ロードマップ新規作成&lt;/font&gt;" style="text;strokeColor=none;align=left;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;labelBackgroundColor=none;fontSize=10;" vertex="1" parent="fxQP5-2Rpk5uUzQ9qzvW-1">
+                    <mxGeometry x="-236" y="80" width="276" height="20" as="geometry"/>
                 </mxCell>
             </root>
         </mxGraphModel>

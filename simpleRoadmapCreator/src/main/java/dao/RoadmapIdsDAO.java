@@ -5,6 +5,8 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Timestamp;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -82,6 +84,77 @@ public class RoadmapIdsDAO {
 			if(result < 1) {
 				return false;
 			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return false;
+		}
+		return true;
+	}
+	
+	public boolean updateAfterDelete(RoadmapId roadmapId) {
+		try (Connection conn = DriverManager.getConnection(ApplicationListener.getJdbcUrl(), ApplicationListener.getUserName(), ApplicationListener.getPass())) {
+			
+			String sql = "UPDATE ROADMAP_IDS SET ROADMAP_ID = ROADMAP_ID - 1 WHERE ROADMAP_ID >= ? AND USER_ID = ?";
+			PreparedStatement pStmt = conn.prepareStatement(sql);
+			
+			pStmt.setInt(1, roadmapId.getRoadmapId());
+			pStmt.setString(2, roadmapId.getUserId());
+			
+			// UPDATEを実行、結果を保存
+			int result = pStmt.executeUpdate();
+			if(result < 1) {
+				return false;
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return false;
+		}
+		return true;
+	}
+	
+	public boolean setUpdateAt(String userId, int roadmapId) {
+		try (Connection conn = DriverManager.getConnection(ApplicationListener.getJdbcUrl(), ApplicationListener.getUserName(), ApplicationListener.getPass())) {
+			
+			String sql = "UPDATE ROADMAP_IDS SET ROADMAP_UPDATE_AT = ? WHERE USER_ID = ? AND ROADMAP_ID = ? ";
+			PreparedStatement pStmt = conn.prepareStatement(sql);
+			
+			// 更新日時セット用の現在時刻
+			Timestamp now = Timestamp.valueOf(LocalDateTime.now());
+			
+			pStmt.setTimestamp(1, now);
+			pStmt.setString(2, userId);
+			pStmt.setInt(3, roadmapId);
+			
+			// UPDATEを実行
+			int result = pStmt.executeUpdate();
+			
+			if(result < 1) {
+				return false;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return false;
+		}
+		return true;
+	}
+	
+	
+	public boolean delete(RoadmapId roadmapId) {
+		try (Connection conn = DriverManager.getConnection(ApplicationListener.getJdbcUrl(), ApplicationListener.getUserName(), ApplicationListener.getPass())) {
+			
+			String sql = "DELETE FROM ROADMAP_IDS WHERE USER_ID = ? AND ROADMAP_ID = ?";
+			PreparedStatement pStmt = conn.prepareStatement(sql);
+			
+			pStmt.setString(1, roadmapId.getUserId());
+			pStmt.setInt(2, roadmapId.getRoadmapId());
+			
+			// DELETEを実行、結果を保存
+			int result = pStmt.executeUpdate();
+			if(result < 1) {
+				return false;
+			}
+			
 		} catch (SQLException e) {
 			e.printStackTrace();
 			return false;

@@ -7,15 +7,19 @@
 		<link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
 		<!-- オリジナルCSS -->
 	<link rel="stylesheet" href="css/style.css">
+	
+	<link rel="icon" type="image/x-icon" href="image/favicon16.ico">
+	
 	<script src="js/roadmapNew.js" defer></script>
 </head>
 <body>
+	<jsp:include page="header.jsp"/>
 	<div class="roadmap-new-container">
 		<h1>ロードマップの新規作成</h1>
-		<form id="roadmap-form" action="RoadmapServlet" method="POST">
+		<form id="roadmap-form" action="RoadmapServlet" method="post">
 			<input type="hidden" name="action" value="newRoadmap">
 			<label for="roadmap-name">名称：</label>
-			<input type="text" id="roadmap-name" name="roadmap-name" required>
+			<input type="text" id="roadmap-name" name="roadmap-name" maxlength="20" required>
 			<div class="parent-container">
 				<div class="element-heading">
 					<h2 class="parent-heading">親要素</h2>
@@ -36,5 +40,6 @@
 			</div>
 		</form>
 	</div>
+	<jsp:include page="footer.jsp"/>
 </body>
 </html>

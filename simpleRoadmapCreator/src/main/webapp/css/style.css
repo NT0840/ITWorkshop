@@ -32,7 +32,7 @@ select:focus {
 .button-container {
   display: flex;
   justify-content: center;
-  margin-top: 20px;
+  margin-top: 40px;
 }
 
 .button {
@@ -55,6 +55,30 @@ select:focus {
 }
 .delete-button {
   background-color: #ad0c00;
+}
+
+/* ヘッダー */
+.header {
+  background-color: #ff8b20;
+  margin-bottom: 10px;
+}
+.logo-container {
+  background-color: #fff;
+  border-radius: 1rem;
+  max-width: 40px;
+  max-height: 40px;
+}
+.logo-container img {
+  max-width: 100%;
+  max-height: auto;
+}
+
+/* フッター */
+.footer {
+  background-color: #ff8b20;
+  color: #fff;
+  text-align: center;
+  margin-top: 10px;
 }
 
 /* ------------------------------------------------------- */
@@ -96,7 +120,7 @@ select:focus {
 /* マイページ画面 */
 .mypage-container {
   background-color: #fff;
-  padding: 2rem 0.5rem;
+  padding: 1rem 0.5rem;
   border-radius: 3rem;
   min-height: 600px;
 }
@@ -153,7 +177,7 @@ select:focus {
 /* ロードマップ新規作成画面 */
 .roadmap-new-container {
   position: fixed;
-  height: 90vh;
+  height: 85vh;
   overflow-y: auto;
   left: 0;
   right: 0;
@@ -264,25 +288,47 @@ select:focus {
 .to-mypage {
   padding: 14px 20px;
 }
-.roadmap-title-container h1{
+.roadmap-title-container {
+  display: flex;
+  justify-content: space-between;
+}
+.roadmap-info-container {
+  justify-content: left;
+  flex-wrap: nowrap;
+  width: 60%;
+}
+.roadmap-info-container h1{
   margin-top: 20px;
   padding: 1px 10px;
   width: 500px;
-}
-.roadmap-info-container {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 5px;
-  flex-wrap: nowrap;
 }
 .roadmap-time {
   min-width: 100px;
   flex-shrink: 0;
 }
 .add-button-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end; 
   flex-shrink: 0;
-  max-width: 100%;
+  width: 40%;
+  margin-top: 10px;
 }
+.add-element-button {
+  background-color: #ff8b20;
+  color: white;
+  border: none;
+  border-radius: 50rem;
+  padding: 10px 20px;
+  text-decoration: none;
+  margin: 10px 10px 0;
+  width: 150px;
+  cursor: pointer;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
 .roadmap-main {
   text-align: center;
 }
@@ -358,11 +404,20 @@ select:focus {
       background: #fff;
       color: #333;
       padding: 20px;
-      min-width: 400px;
-      width: auto;
+      width: 60%;
+      min-width: 450px;
       border-radius: 8px;
       text-align: center;
     }
+    .modal-container-delete {
+	  background: #fff;
+      color: #333;
+      padding: 20px;
+      width: 50%;
+      min-width: 450px;
+      border-radius: 8px;
+      text-align: center;
+	}
     .modal-delete {
 	  margin: 20px 0;
 	  color: #fff;
@@ -375,62 +430,87 @@ select:focus {
 	  display: flex;
       justify-content: center;
 	}
-	.parent-header, 
-	.child-header {
-	  text-align: left;
+	.modal-new-child {
+	  display: flex;
+	  flex-direction: column;
+	  justify-content: center;
 	}
-	.modal-parent, 
-	.modal-child {
+	.modal-new-child label{
+		margin-bottom: 20px;
+	}
+	.element-header {
+	  display: flex;
+	  justify-content: space-between;
+	  text-align: left;
+	  border-bottom: 1px solid #000;
+	}
+	.element-button-container {
+	  margin-bottom: 10px;
+	}
+	.modal-element {
 	  display: flex;
 	  flex-direction: column;
 	}
-	.parent-time, 
-	.child-time {
+	.element-time {
 	  display: flex;
 	  justify-content: left;
 	  font-size: 0.8rem;
 	}
-	.parent-time p, 
-	.child-time p {
+	.element-time p {
 	  margin-right: 10px;
 	}
-	.parent-content-upside, 
-	.child-content-upside {
-	  margin-top: 10px;
+	.element-content-upside {
 	  display: flex;
 	  text-align: left;
 	  flex-direction: column;
 	  border-bottom: 2px solid #ccc;
   	  padding-bottom: 10px;
 	}
-	.parent-content-upside label, 
-	.child-content-upside label {
+	.element-content-upside label {
 	  margin-top: 10px;
 	  font-weight: 500;
 	}
-	.parent-content-downside, 
-	.child-content-downside {
-	  margin-top: 10px;
+	.element-content-downside {
 	  display: flex;
 	  text-align: left;
 	  flex-direction: column
 	}
-	.parent-content-downside label, 
-	.child-content-downside label {
-	  font-weight: 500;
+	.element-content-downside label {
+	  margin-top: 10px;
+	  font-weight: 600;
 	}
-	.parent-content-downside textarea, 
-	.child-content-downside textarea {
+	.element-content-downside textarea {
 	  resize: none;
 	  field-sizing: content; /* コンテンツに基づいてサイズを調整 */
-      min-height: 50vh; /* 最小高さ */
-      max-width: 55vh;
+	  overflow-y: auto; /* 縦方向にスクロールバーを表示 */
+	  min-width: 100%;
+      min-height: 30vh; /* 最小高さ */
+      max-height: 30vh;
 	}
-	.parent-textarea-container, 
-	.child-textarea-container {
+	.element-content-downside textarea::-webkit-scrollbar {
+      width: 8px; /* スクロールバーの幅 */
+      height: 8px; /* スクロールバーの高さ */
+    }
+    .element-content-downside textarea::-webkit-scrollbar-thumb {
+      background-color: #ccc; /* スクロールバーの色 */
+      border-radius: 4px; /* スクロールバーの丸み */
+    }
+    .element-content-downside textarea::-webkit-scrollbar-track {
+      background-color: #f0f0f0; /* スクロールバーの背景色 */
+      border-radius: 4px; /* スクロールバーの背景の丸み */
+    }
+	.element-textarea-container {
 	  padding: 10px;
 	  border: 1px solid #ccc;
 	  border-radius: 1rem;
+	  min-width: 100%;
+	}
+	.element-title {
+	  margin-top: 10px;
+	  padding: 4px;
+	  font-size: 1.2rem;
+	  font-weight: 600;
+	  background-color: white;
 	}
 
 

@@ -1,8 +1,0 @@
-// パス「/simpleRoadmapCreator/src/main/webapp/WEB-INF/json/DBConnection.json」
-
-{
-  "driverClassName": "org.h2.Driver",
-  "jdbcUrl": "jdbc:h2:tcp://localhost/~/desktop/test",
-  "userName": "sa",
-  "pass": ""
-}

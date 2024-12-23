@@ -1,9 +1,9 @@
 <mxfile host="65bd71144e">
     <diagram id="WHIG_iPTzpvooCITM3A4" name="画面遷移図">
-        <mxGraphModel dx="2609" dy="1082" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+        <mxGraphModel dx="2986" dy="1179" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
-                <mxCell id="832" value="枠組み" style="locked=1;" parent="0"/>
+                <mxCell id="832" value="枠組み" style="locked=1;" parent="0" visible="0"/>
                 <mxCell id="833" value="" style="rounded=0;whiteSpace=wrap;html=1;labelBackgroundColor=none;strokeColor=#FF99CC;fontSize=11;fontColor=#FFFFFF;fillColor=none;dashed=1;" parent="832" vertex="1">
                     <mxGeometry x="20" y="219" width="1480" height="821" as="geometry"/>
                 </mxCell>
@@ -221,8 +221,8 @@
                 <mxCell id="420" value="「戻る」&lt;br&gt;ボタンを&lt;br&gt;クリック" style="text;strokeColor=none;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;labelBackgroundColor=none;" parent="5xK-KBNFXrX2DUE9tunr-284" vertex="1">
                     <mxGeometry x="391" y="115" width="53" height="51" as="geometry"/>
                 </mxCell>
-                <mxCell id="789" value="JavaScriptによる&lt;br&gt;モーダル画面切替&lt;br&gt;id：deleteParent" style="text;strokeColor=default;align=left;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;labelBackgroundColor=none;fontSize=10;dashed=1;strokeWidth=2;perimeterSpacing=0;dashPattern=1 1;glass=1;" parent="1" vertex="1">
-                    <mxGeometry x="1520" y="2569" width="96" height="38" as="geometry"/>
+                <mxCell id="789" value="JavaScriptによる&lt;br&gt;モーダル画面切替&lt;br&gt;id：modalParentDeleteX" style="text;strokeColor=default;align=left;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;labelBackgroundColor=none;fontSize=10;dashed=1;strokeWidth=2;perimeterSpacing=0;dashPattern=1 1;glass=1;" parent="1" vertex="1">
+                    <mxGeometry x="1506" y="2569" width="116" height="38" as="geometry"/>
                 </mxCell>
                 <mxCell id="684" value="" style="text;strokeColor=default;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;labelBackgroundColor=none;fontSize=10;dashed=1;strokeWidth=2;perimeterSpacing=0;dashPattern=1 1;glass=1;" parent="1" vertex="1">
                     <mxGeometry x="30" y="829" width="223" height="181" as="geometry"/>
@@ -3432,11 +3432,11 @@
                 <mxCell id="750" value="フォワード" style="text;strokeColor=default;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;labelBackgroundColor=none;fontSize=10;" parent="1" vertex="1">
                     <mxGeometry x="260.5" y="2385" width="59" height="15" as="geometry"/>
                 </mxCell>
-                <mxCell id="752" value="JavaScriptによる&lt;br&gt;モーダル画面切替&lt;br&gt;id：newParent" style="text;strokeColor=default;align=left;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;labelBackgroundColor=none;fontSize=10;dashed=1;strokeWidth=2;perimeterSpacing=0;dashPattern=1 1;glass=1;" parent="1" vertex="1">
-                    <mxGeometry x="1115" y="1811" width="96" height="38" as="geometry"/>
+                <mxCell id="752" value="JavaScriptによる&lt;br&gt;モーダル画面切替&lt;br&gt;id：modal-new-parent" style="text;strokeColor=default;align=left;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;labelBackgroundColor=none;fontSize=10;dashed=1;strokeWidth=2;perimeterSpacing=0;dashPattern=1 1;glass=1;" parent="1" vertex="1">
+                    <mxGeometry x="1115" y="1811" width="105" height="38" as="geometry"/>
                 </mxCell>
-                <mxCell id="753" value="JavaScriptによる&lt;br&gt;モーダル画面切替&lt;br&gt;id：newChild" style="text;strokeColor=default;align=left;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;labelBackgroundColor=none;fontSize=10;dashed=1;strokeWidth=2;perimeterSpacing=0;dashPattern=1 1;glass=1;" parent="1" vertex="1">
-                    <mxGeometry x="1110" y="1930" width="96" height="38" as="geometry"/>
+                <mxCell id="753" value="JavaScriptによる&lt;br&gt;モーダル画面切替&lt;br&gt;id：modal-new-child" style="text;strokeColor=default;align=left;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;labelBackgroundColor=none;fontSize=10;dashed=1;strokeWidth=2;perimeterSpacing=0;dashPattern=1 1;glass=1;" parent="1" vertex="1">
+                    <mxGeometry x="1110" y="1930" width="100" height="38" as="geometry"/>
                 </mxCell>
                 <mxCell id="754" style="edgeStyle=none;rounded=0;jumpStyle=line;jumpSize=10;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;startArrow=none;startFill=0;fillColor=#f8cecc;strokeColor=#b85450;" parent="1" source="755" target="756" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
@@ -3457,8 +3457,8 @@
                 <mxCell id="757" value="POST" style="text;strokeColor=default;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;labelBackgroundColor=none;fontSize=10;strokeWidth=2;" parent="1" vertex="1">
                     <mxGeometry x="1673" y="1796" width="30" height="14" as="geometry"/>
                 </mxCell>
-                <mxCell id="758" value="action=newParent&lt;br&gt;parentName&lt;br&gt;parentNum" style="text;strokeColor=#990000;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;labelBackgroundColor=none;fontSize=10;dashed=1;strokeWidth=2;perimeterSpacing=0;dashPattern=1 1;glass=1;" parent="1" vertex="1">
-                    <mxGeometry x="1648" y="1813" width="80" height="43" as="geometry"/>
+                <mxCell id="758" value="action=newParent&lt;br&gt;parentName" style="text;strokeColor=#990000;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;labelBackgroundColor=none;fontSize=10;dashed=1;strokeWidth=2;perimeterSpacing=0;dashPattern=1 1;glass=1;" parent="1" vertex="1">
+                    <mxGeometry x="1648" y="1813" width="80" height="37" as="geometry"/>
                 </mxCell>
                 <mxCell id="760" value="現在表示中のロードマップIDを取得し、作成した親要素を追加して&lt;br&gt;スコープおよびDBに保存" style="text;strokeColor=default;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;labelBackgroundColor=none;fontSize=10;dashed=1;strokeWidth=2;perimeterSpacing=0;dashPattern=1 1;glass=1;" parent="1" vertex="1">
                     <mxGeometry x="1790" y="1830" width="190" height="36" as="geometry"/>
@@ -3574,7 +3574,7 @@
                 <mxCell id="773" value="&lt;font color=&quot;#ffffff&quot;&gt;RoadmapServlet&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;labelBackgroundColor=none;fillStyle=auto;strokeColor=#F0F0F0;fontFamily=Helvetica;fontSize=10;fontColor=#007FFF;fillColor=#0066CC;" parent="1" vertex="1">
                     <mxGeometry x="1603" y="2200" width="85" height="15" as="geometry"/>
                 </mxCell>
-                <mxCell id="774" value="action=newChild&lt;br&gt;childName&lt;br&gt;belongToParentNum&lt;br&gt;childNum&lt;br&gt;childTag" style="text;strokeColor=#990000;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;labelBackgroundColor=none;fontSize=10;dashed=1;strokeWidth=2;perimeterSpacing=0;dashPattern=1 1;glass=1;" parent="1" vertex="1">
+                <mxCell id="774" value="action=newChild&lt;br&gt;childName&lt;br&gt;belongToParentNum&lt;br&gt;childTagNum" style="text;strokeColor=#990000;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;labelBackgroundColor=none;fontSize=10;dashed=1;strokeWidth=2;perimeterSpacing=0;dashPattern=1 1;glass=1;" parent="1" vertex="1">
                     <mxGeometry x="1652" y="2244" width="88" height="63" as="geometry"/>
                 </mxCell>
                 <mxCell id="775" value="POST" style="text;strokeColor=default;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;labelBackgroundColor=none;fontSize=10;strokeWidth=2;" parent="1" vertex="1">
@@ -3589,7 +3589,7 @@
                 <mxCell id="785" value="現在表示中のロードマップIDを取得し、作成した親要素を追加して&lt;br&gt;スコープおよびDBに保存" style="text;strokeColor=default;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;labelBackgroundColor=none;fontSize=10;dashed=1;strokeWidth=2;perimeterSpacing=0;dashPattern=1 1;glass=1;" parent="1" vertex="1">
                     <mxGeometry x="1800" y="2220" width="190" height="36" as="geometry"/>
                 </mxCell>
-                <mxCell id="786" value="JavaScriptによる&lt;br&gt;モーダル画面切替&lt;br&gt;id：parent" style="text;strokeColor=default;align=left;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;labelBackgroundColor=none;fontSize=10;dashed=1;strokeWidth=2;perimeterSpacing=0;dashPattern=1 1;glass=1;" parent="1" vertex="1">
+                <mxCell id="786" value="JavaScriptによる&lt;br&gt;モーダル画面切替&lt;br&gt;id：modalParentX" style="text;strokeColor=default;align=left;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;labelBackgroundColor=none;fontSize=10;dashed=1;strokeWidth=2;perimeterSpacing=0;dashPattern=1 1;glass=1;" parent="1" vertex="1">
                     <mxGeometry x="1070" y="2531" width="96" height="38" as="geometry"/>
                 </mxCell>
                 <mxCell id="5xK-KBNFXrX2DUE9tunr-728" value="親要素／&lt;br&gt;「戻る」ボタン&lt;br&gt;をクリック" style="text;strokeColor=none;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;labelBackgroundColor=none;" parent="1" vertex="1">
@@ -3598,11 +3598,11 @@
                 <mxCell id="5xK-KBNFXrX2DUE9tunr-730" value="子要素／&lt;br&gt;「戻る」ボタン&lt;br&gt;をクリック" style="text;strokeColor=none;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;labelBackgroundColor=none;" parent="1" vertex="1">
                     <mxGeometry x="1073" y="2770.75" width="90" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="787" value="JavaScriptによる&lt;br&gt;モーダル画面切替&lt;br&gt;id：child" style="text;strokeColor=default;align=left;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;labelBackgroundColor=none;fontSize=10;dashed=1;strokeWidth=2;perimeterSpacing=0;dashPattern=1 1;glass=1;" parent="1" vertex="1">
+                <mxCell id="787" value="JavaScriptによる&lt;br&gt;モーダル画面切替&lt;br&gt;id：modalChildX" style="text;strokeColor=default;align=left;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;labelBackgroundColor=none;fontSize=10;dashed=1;strokeWidth=2;perimeterSpacing=0;dashPattern=1 1;glass=1;" parent="1" vertex="1">
                     <mxGeometry x="1070" y="2821" width="96" height="38" as="geometry"/>
                 </mxCell>
-                <mxCell id="790" value="JavaScriptによる&lt;br&gt;モーダル画面切替&lt;br&gt;id：deleteChild" style="text;strokeColor=default;align=left;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;labelBackgroundColor=none;fontSize=10;dashed=1;strokeWidth=2;perimeterSpacing=0;dashPattern=1 1;glass=1;" parent="1" vertex="1">
-                    <mxGeometry x="1520" y="2890" width="96" height="38" as="geometry"/>
+                <mxCell id="790" value="JavaScriptによる&lt;br&gt;モーダル画面切替&lt;br&gt;id：modalChildDeleteX" style="text;strokeColor=default;align=left;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;labelBackgroundColor=none;fontSize=10;dashed=1;strokeWidth=2;perimeterSpacing=0;dashPattern=1 1;glass=1;" parent="1" vertex="1">
+                    <mxGeometry x="1510" y="2890" width="106" height="38" as="geometry"/>
                 </mxCell>
                 <mxCell id="5xK-KBNFXrX2DUE9tunr-847" value="「削除」&lt;br&gt;ボタンを&lt;br&gt;クリック" style="text;strokeColor=none;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;labelBackgroundColor=none;" parent="1" vertex="1">
                     <mxGeometry x="1940" y="2510" width="60" height="40" as="geometry"/>
@@ -3715,8 +3715,8 @@
                         <mxPoint x="1190" y="2620" as="sourcePoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="822" value="action=updateChild&lt;br&gt;currentChildNum=X&lt;br&gt;childName&lt;br&gt;belongToParentNum&lt;br&gt;childNum&lt;br&gt;childTag&lt;br&gt;status&lt;br&gt;description" style="text;strokeColor=#990000;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;labelBackgroundColor=none;fontSize=10;dashed=1;strokeWidth=2;perimeterSpacing=0;dashPattern=1 1;glass=1;" parent="1" vertex="1">
-                    <mxGeometry x="1030" y="2937" width="93" height="93" as="geometry"/>
+                <mxCell id="822" value="action=updateChild&lt;br&gt;currentParentNum=X&lt;br&gt;currentChildNum=X&lt;br&gt;childName&lt;br&gt;belongToParentNum&lt;br&gt;childNum&lt;br&gt;childTag&lt;br&gt;status&lt;br&gt;description" style="text;strokeColor=#990000;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;labelBackgroundColor=none;fontSize=10;dashed=1;strokeWidth=2;perimeterSpacing=0;dashPattern=1 1;glass=1;" parent="1" vertex="1">
+                    <mxGeometry x="1030" y="2930" width="93" height="113" as="geometry"/>
                 </mxCell>
                 <mxCell id="823" value="POST" style="text;strokeColor=default;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;labelBackgroundColor=none;fontSize=10;strokeWidth=2;" parent="1" vertex="1">
                     <mxGeometry x="1057" y="2910" width="30" height="14" as="geometry"/>
@@ -3771,7 +3771,10 @@
                 <mxCell id="1256" value="リクエストパラメータ&quot;select&quot;には、クリックしたロードマップのroadmapId(int)が格納される" style="text;strokeColor=default;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;labelBackgroundColor=none;fontSize=10;dashed=1;strokeWidth=2;perimeterSpacing=0;dashPattern=1 1;glass=1;fontColor=default;" parent="1" vertex="1">
                     <mxGeometry x="-12" y="1580.75" width="170" height="40.75" as="geometry"/>
                 </mxCell>
-                <mxCell id="887" value="ポップアップ" style="locked=1;" parent="0"/>
+                <mxCell id="1257" value="※「子要素変更画面」にて、所属親要素を変更させる場合は、「要素の削除」同様に別モーダルで実現させる" style="text;strokeColor=default;align=left;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;labelBackgroundColor=none;fontSize=10;dashed=1;strokeWidth=2;perimeterSpacing=0;dashPattern=1 1;glass=1;" parent="1" vertex="1">
+                    <mxGeometry x="1258" y="3050" width="174" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="887" value="ポップアップ" style="" parent="0"/>
                 <mxCell id="1190" value="" style="rounded=0;whiteSpace=wrap;html=1;labelBackgroundColor=none;fillStyle=auto;strokeColor=none;fontFamily=Helvetica;fontSize=11;fontColor=#007FFF;fillColor=#000000;opacity=50;" parent="887" vertex="1">
                     <mxGeometry x="365" y="2025" width="305" height="240" as="geometry"/>
                 </mxCell>
@@ -3900,7 +3903,7 @@
                 <mxCell id="915" value="" style="rounded=1;whiteSpace=wrap;html=1;labelBackgroundColor=none;fillStyle=auto;strokeColor=#F0F0F0;fontFamily=Helvetica;fontSize=11;fontColor=#007FFF;fillColor=#000000;" parent="887" vertex="1">
                     <mxGeometry x="1300" y="1790" width="230" height="120" as="geometry"/>
                 </mxCell>
-                <mxCell id="916" value="&lt;div style=&quot;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#9;&lt;/span&gt;　&amp;nbsp;新規親要素名：&lt;/span&gt;&lt;br&gt;&lt;/div&gt;&lt;div style=&quot;&quot;&gt;親要素番号(挿入位置)：&lt;br&gt;&lt;/div&gt;" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=12;fontColor=#FFFFFF;" parent="887" vertex="1">
+                <mxCell id="916" value="&lt;div style=&quot;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#9;&lt;/span&gt;　&amp;nbsp;新規親要素名：&lt;/span&gt;&lt;br&gt;&lt;/div&gt;&lt;div style=&quot;&quot;&gt;&lt;br&gt;&lt;/div&gt;" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=12;fontColor=#FFFFFF;" parent="887" vertex="1">
                     <mxGeometry x="1312.5" y="1822.5" width="150" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="917" value="&lt;div style=&quot;&quot;&gt;新規親要素作成&lt;/div&gt;" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=12;fontColor=#FFFFFF;" parent="887" vertex="1">
@@ -3908,9 +3911,6 @@
                 </mxCell>
                 <mxCell id="918" value="XXX" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.text.textBox;fontColor=#666666;align=left;fontSize=12;spacingLeft=4;spacingTop=-3;strokeColor=#666666;mainText=;labelBackgroundColor=none;fillStyle=auto;fillColor=none;" parent="887" vertex="1">
                     <mxGeometry x="1443" y="1829.5" width="65" height="12" as="geometry"/>
-                </mxCell>
-                <mxCell id="919" value="&lt;font style=&quot;font-size: 10px;&quot;&gt;O：XXX&lt;/font&gt;" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.forms.comboBox;strokeColor=#999999;fillColor=#ddeeff;align=left;fillColor2=#aaddff;mainText=;fontColor=#666666;fontSize=10;spacingLeft=3;labelBackgroundColor=none;fillStyle=auto;" parent="887" vertex="1">
-                    <mxGeometry x="1443" y="1846.5" width="80" height="10" as="geometry"/>
                 </mxCell>
                 <mxCell id="920" value="戻る" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.buttons.button;strokeColor=#666666;fontColor=#ffffff;mainText=;buttonStyle=round;fontSize=8;fontStyle=1;fillColor=#808080;whiteSpace=wrap;labelBackgroundColor=none;" parent="887" vertex="1">
                     <mxGeometry x="1342.5" y="1890" width="70" height="10" as="geometry"/>
@@ -3940,17 +3940,17 @@
                 <mxCell id="950" value="" style="rounded=1;whiteSpace=wrap;html=1;labelBackgroundColor=none;fillStyle=auto;strokeColor=#F0F0F0;fontFamily=Helvetica;fontSize=11;fontColor=#007FFF;fillColor=#000000;" parent="887" vertex="1">
                     <mxGeometry x="1300" y="2180" width="230" height="130" as="geometry"/>
                 </mxCell>
-                <mxCell id="951" value="&lt;div style=&quot;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#9;&lt;/span&gt;　&amp;nbsp;新規子要素名：&lt;/span&gt;&lt;br&gt;&lt;/div&gt;&lt;div style=&quot;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;　　&amp;nbsp; 　　所属親要素：&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;&quot;&gt;子要素番号(挿入位置)：&lt;br&gt;&lt;/div&gt;&lt;div style=&quot;&quot;&gt;　　子要素タグ(任意)：&lt;/div&gt;" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=12;fontColor=#FFFFFF;" parent="887" vertex="1">
-                    <mxGeometry x="1312.5" y="2208.5" width="150" height="70" as="geometry"/>
+                <mxCell id="951" value="&lt;div style=&quot;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#9;&lt;/span&gt;　&amp;nbsp;新規子要素名：&lt;/span&gt;&lt;br&gt;&lt;/div&gt;&lt;div style=&quot;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;　　&amp;nbsp; 　　所属親要素：&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;　　&amp;nbsp; 　　子要素タグ：&lt;/span&gt;&lt;br&gt;&lt;/div&gt;" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=12;fontColor=#FFFFFF;" parent="887" vertex="1">
+                    <mxGeometry x="1312.5" y="2213.5" width="150" height="60" as="geometry"/>
                 </mxCell>
                 <mxCell id="952" value="&lt;div style=&quot;&quot;&gt;新規子要素作成&lt;/div&gt;" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=12;fontColor=#FFFFFF;" parent="887" vertex="1">
                     <mxGeometry x="1312.5" y="2189.5" width="110" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="953" value="XXX" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.text.textBox;fontColor=#666666;align=left;fontSize=12;spacingLeft=4;spacingTop=-3;strokeColor=#666666;mainText=;labelBackgroundColor=none;fillStyle=auto;fillColor=none;" parent="887" vertex="1">
-                    <mxGeometry x="1443" y="2216.5" width="65" height="12" as="geometry"/>
+                    <mxGeometry x="1443" y="2221.5" width="65" height="12" as="geometry"/>
                 </mxCell>
                 <mxCell id="954" value="O：XXX" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.forms.comboBox;strokeColor=#999999;fillColor=#ddeeff;align=left;fillColor2=#aaddff;mainText=;fontColor=#666666;fontSize=10;spacingLeft=3;labelBackgroundColor=none;fillStyle=auto;" parent="887" vertex="1">
-                    <mxGeometry x="1443" y="2231.5" width="80" height="10" as="geometry"/>
+                    <mxGeometry x="1443" y="2238.5" width="80" height="10" as="geometry"/>
                 </mxCell>
                 <mxCell id="955" value="戻る" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.buttons.button;strokeColor=#666666;fontColor=#ffffff;mainText=;buttonStyle=round;fontSize=8;fontStyle=1;fillColor=#808080;whiteSpace=wrap;labelBackgroundColor=none;" parent="887" vertex="1">
                     <mxGeometry x="1340" y="2285" width="70" height="10" as="geometry"/>
@@ -3958,11 +3958,8 @@
                 <mxCell id="956" value="作成" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.buttons.button;strokeColor=#666666;fontColor=#ffffff;mainText=;buttonStyle=round;fontSize=8;fontStyle=1;fillColor=#008cff;whiteSpace=wrap;labelBackgroundColor=none;" parent="887" vertex="1">
                     <mxGeometry x="1415" y="2285" width="70" height="10" as="geometry"/>
                 </mxCell>
-                <mxCell id="957" value="O：XXX" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.forms.comboBox;strokeColor=#999999;fillColor=#ddeeff;align=left;fillColor2=#aaddff;mainText=;fontColor=#666666;fontSize=10;spacingLeft=3;labelBackgroundColor=none;fillStyle=auto;" parent="887" vertex="1">
-                    <mxGeometry x="1443" y="2248" width="80" height="10" as="geometry"/>
-                </mxCell>
                 <mxCell id="958" value="O：XXX" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.forms.comboBox;strokeColor=#999999;fillColor=#ddeeff;align=left;fillColor2=#aaddff;mainText=;fontColor=#666666;fontSize=10;spacingLeft=3;labelBackgroundColor=none;fillStyle=auto;" parent="887" vertex="1">
-                    <mxGeometry x="1443" y="2262" width="80" height="10" as="geometry"/>
+                    <mxGeometry x="1443" y="2255" width="80" height="10" as="geometry"/>
                 </mxCell>
                 <mxCell id="1052" value="&lt;font style=&quot;font-size: 10px;&quot;&gt;親要素1&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;labelBackgroundColor=none;fillStyle=auto;strokeColor=#00331A;fontSize=12;fontColor=#FFFFFF;fillColor=#006633;container=0;" parent="887" vertex="1">
                     <mxGeometry x="1668.33" y="2530" width="56.67" height="20" as="geometry"/>
@@ -4259,11 +4256,8 @@
                 <mxCell id="1027" value="" style="rounded=1;whiteSpace=wrap;html=1;labelBackgroundColor=none;fillStyle=auto;strokeColor=#F0F0F0;fontFamily=Helvetica;fontSize=11;fontColor=#007FFF;fillColor=#000000;" parent="887" vertex="1">
                     <mxGeometry x="1230" y="2770" width="230" height="200" as="geometry"/>
                 </mxCell>
-                <mxCell id="1028" value="&lt;div style=&quot;&quot;&gt;&lt;font style=&quot;font-size: 10px;&quot;&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#9;&lt;/span&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#9;&lt;/span&gt;&amp;nbsp;所属親要素：&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;&quot;&gt;&lt;font style=&quot;font-size: 10px;&quot;&gt;子要素番号(挿入位置)：&lt;/font&gt;&lt;br&gt;&lt;/div&gt;&lt;div style=&quot;&quot;&gt;&lt;font style=&quot;font-size: 10px;&quot;&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#9;&lt;/span&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#9;&lt;/span&gt;&amp;nbsp;子要素タグ：&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;&quot;&gt;&lt;font style=&quot;font-size: 10px;&quot;&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#9;&lt;/span&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#9;&lt;/span&gt;&amp;nbsp;ステータス：&lt;/font&gt;&lt;/div&gt;" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=12;fontColor=#FFFFFF;" parent="887" vertex="1">
-                    <mxGeometry x="1242.5" y="2809.5" width="130" height="70" as="geometry"/>
-                </mxCell>
-                <mxCell id="1029" value="&lt;font style=&quot;font-size: 10px;&quot;&gt;O：XXX&lt;/font&gt;" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.forms.comboBox;strokeColor=#999999;fillColor=#ddeeff;align=left;fillColor2=#aaddff;mainText=;fontColor=#666666;fontSize=10;spacingLeft=3;labelBackgroundColor=none;fillStyle=auto;" parent="887" vertex="1">
-                    <mxGeometry x="1352" y="2820" width="80" height="10" as="geometry"/>
+                <mxCell id="1028" value="&lt;div style=&quot;&quot;&gt;&lt;span style=&quot;font-size: 10px; background-color: initial;&quot;&gt;子要素番号(挿入位置)：&lt;/span&gt;&lt;br&gt;&lt;/div&gt;&lt;div style=&quot;&quot;&gt;&lt;font style=&quot;font-size: 10px;&quot;&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#9;&lt;/span&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#9;&lt;/span&gt;&amp;nbsp;子要素タグ：&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;&quot;&gt;&lt;font style=&quot;font-size: 10px;&quot;&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#9;&lt;/span&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#9;&lt;/span&gt;&amp;nbsp;ステータス：&lt;/font&gt;&lt;/div&gt;" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=12;fontColor=#FFFFFF;" parent="887" vertex="1">
+                    <mxGeometry x="1242.5" y="2814.5" width="130" height="60" as="geometry"/>
                 </mxCell>
                 <mxCell id="1030" value="戻る" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.buttons.button;strokeColor=#666666;fontColor=#ffffff;mainText=;buttonStyle=round;fontSize=8;fontStyle=1;fillColor=#808080;whiteSpace=wrap;labelBackgroundColor=none;" parent="887" vertex="1">
                     <mxGeometry x="1272.5" y="2950" width="70" height="10" as="geometry"/>
@@ -4278,16 +4272,16 @@
                     <mxGeometry x="1242" y="2799" width="210" height="20" as="geometry"/>
                 </mxCell>
                 <mxCell id="1034" value="未完了" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.forms.comboBox;strokeColor=#999999;fillColor=#ddeeff;align=left;fillColor2=#aaddff;mainText=;fontColor=#666666;fontSize=10;spacingLeft=3;labelBackgroundColor=none;fillStyle=auto;" parent="887" vertex="1">
-                    <mxGeometry x="1352" y="2862" width="80" height="10" as="geometry"/>
+                    <mxGeometry x="1352" y="2855" width="80" height="10" as="geometry"/>
                 </mxCell>
                 <mxCell id="1035" value="要素の削除" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.buttons.button;strokeColor=#666666;fontColor=#ffffff;mainText=;buttonStyle=round;fontSize=8;fontStyle=1;fillColor=#990000;whiteSpace=wrap;labelBackgroundColor=none;fillStyle=auto;fillOpacity=100;perimeterSpacing=1;container=0;" parent="887" vertex="1">
                     <mxGeometry x="1382" y="2784" width="50" height="12" as="geometry"/>
                 </mxCell>
                 <mxCell id="1036" value="タグ" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.forms.comboBox;strokeColor=#999999;fillColor=#ddeeff;align=left;fillColor2=#aaddff;mainText=;fontColor=#666666;fontSize=10;spacingLeft=3;labelBackgroundColor=none;fillStyle=auto;" parent="887" vertex="1">
-                    <mxGeometry x="1352" y="2848" width="80" height="10" as="geometry"/>
+                    <mxGeometry x="1352" y="2841" width="80" height="10" as="geometry"/>
                 </mxCell>
                 <mxCell id="1037" value="&lt;font style=&quot;font-size: 10px;&quot;&gt;O：XXX&lt;/font&gt;" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.forms.comboBox;strokeColor=#999999;fillColor=#ddeeff;align=left;fillColor2=#aaddff;mainText=;fontColor=#666666;fontSize=10;spacingLeft=3;labelBackgroundColor=none;fillStyle=auto;" parent="887" vertex="1">
-                    <mxGeometry x="1352" y="2834" width="80" height="10" as="geometry"/>
+                    <mxGeometry x="1352" y="2827" width="80" height="10" as="geometry"/>
                 </mxCell>
                 <mxCell id="1038" value="&lt;div style=&quot;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;XXXXXXXXX&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;&quot;&gt;&lt;br&gt;&lt;/div&gt;" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.text.textBox;fontColor=#666666;align=left;fontSize=12;spacingLeft=4;spacingTop=-3;strokeColor=#666666;mainText=;labelBackgroundColor=none;fillStyle=auto;fillColor=none;" parent="887" vertex="1">
                     <mxGeometry x="1242.5" y="2904" width="207.5" height="38" as="geometry"/>

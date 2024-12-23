@@ -11,9 +11,13 @@
 	<link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
 	<!-- オリジナルCSS -->
     <link rel="stylesheet" href="css/style.css">
+    
+    <link rel="icon" type="image/x-icon" href="image/favicon16.ico">
+    
     <script src="js/mypage.js" defer></script>
 </head>
 <body>
+	<jsp:include page="header.jsp"/>
     <div class="mypage-container">
         <div class="menu-container">
             <h1>マイページ</h1>
@@ -51,5 +55,6 @@
             </table>
         </div>
     </div> 
+    <jsp:include page="footer.jsp"/>
 </body>
 </html>
