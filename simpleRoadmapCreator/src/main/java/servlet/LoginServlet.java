@@ -38,7 +38,7 @@ public class LoginServlet extends HttpServlet {
 		
 		// ログイン失敗時の処理
 		if(!isLogin) {
-			// エラーメッセージをリクエストスコープに保存、index.jspにリダイレクト
+			// エラーメッセージをリクエストスコープに保存、index.jspにフォワード
 			ErrorMsg errorMsg = new ErrorMsg("ログインエラー", "ユーザーIDまたはパスワードが異なります");
 			request.setAttribute("errorMsg", errorMsg);
 			RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");

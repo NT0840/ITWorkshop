@@ -47,7 +47,7 @@ public class MypageServlet extends HttpServlet {
 			List<Roadmap> roadmaps = roadmapLogic.findByUserId(userId);
 			session.setAttribute("roadmaps", roadmaps);
 		}
-		doGet(request, response);
+		response.sendRedirect("MypageServlet");
 	}
 
 }

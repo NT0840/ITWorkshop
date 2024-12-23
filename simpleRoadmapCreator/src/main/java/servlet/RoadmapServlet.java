@@ -30,14 +30,16 @@ public class RoadmapServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String forwardPath = null;
+		String redirectPath = null;
 		// サーブレットクラスの動作を決定する「action」の値をリクエストパラメータから取得
+		request.setCharacterEncoding("UTF-8");
 		String action = request.getParameter("action");
 		String select = request.getParameter("select");
 		
 		HttpSession session = request.getSession();
 		
 		if(action == null) { // mypageから遷移してきた場合
-			forwardPath = "WEB-INF/jsp/roadmap.jsp";
+			redirectPath = "RoadmapTransferServlet";
 		} else if(action.equals("new")) {
 			forwardPath = "WEB-INF/jsp/roadmapNew.jsp";
 		} else if(action.equals("delete")) {
@@ -50,16 +52,17 @@ public class RoadmapServlet extends HttpServlet {
 			RoadmapLogic roadmapLogic = new RoadmapLogic(); 
 			Boolean isDelete = roadmapLogic.deleteRoadmap(roadmapId);
 
-			// 現在の表示中のRoadmapインスタンスをroadmapsから削除、セッションスコープのroadmapsを上書き
-			roadmaps.remove(roadmapId.getRoadmapId() - 1);
-			session.setAttribute("roadmaps", roadmaps);
+			// ユーザーIDに紐づくロードマップを取得、セッションスコープに保存
+			UserId userId = (UserId)session.getAttribute("userId");
+			List<Roadmap> roadmapsNew = roadmapLogic.findByUserId(userId);
+			session.setAttribute("roadmaps", roadmapsNew);
 			
 			// セッションスコープからcurrentRoadmapIdおよび描画用のJSONを削除
 			session.removeAttribute("currentRoadmapId");
 			session.removeAttribute("parentElementsJson");
 			session.removeAttribute("childElementsJson");
 			
-			forwardPath = "MypageServlet";
+			redirectPath = "MypageServlet";
 		} else if(action.equals("delete-parent")) {
 			// 親要素の削除
 			// パラメータの取得
@@ -84,7 +87,7 @@ public class RoadmapServlet extends HttpServlet {
 			// 表示中roadmapインスタンスをJavaScriptで利用するためにJSON形式でセッションスコープに保存
 			elementsToJson(currentRoadmap, session);
 			
-			forwardPath = "WEB-INF/jsp/roadmap.jsp";
+			redirectPath = "RoadmapTransferServlet";
 		} else if(action.equals("delete-child")) {
 			// 子要素の削除
 			// パラメータの取得
@@ -110,13 +113,8 @@ public class RoadmapServlet extends HttpServlet {
 			// 表示中roadmapインスタンスをJavaScriptで利用するためにJSON形式でセッションスコープに保存
 			elementsToJson(currentRoadmap, session);
 			
-			forwardPath = "WEB-INF/jsp/roadmap.jsp";
+			redirectPath = "RoadmapTransferServlet";
 		}
-		
-		
-		
-		
-		
 		
 		// マイページ画面から遷移してきた用の、表示するロードマップを特定してRoadmapIdインスタンスをセッションスコープに保存
 		if(select != null) {
@@ -131,14 +129,21 @@ public class RoadmapServlet extends HttpServlet {
 			}
 		}
 		
-		// フォワード
-		RequestDispatcher dispatcher = request.getRequestDispatcher(forwardPath);
-		dispatcher.forward(request, response);
+		if(forwardPath != null) {
+			// フォワード
+			RequestDispatcher dispatcher = request.getRequestDispatcher(forwardPath);
+			dispatcher.forward(request, response);	
+		} else {
+			// リダイレクト
+			response.sendRedirect(redirectPath);
+		}
+		
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String forwardPath = null;
+		String redirectPath = null;
 		// サーブレットクラスの動作を決定する「action」の値をリクエストパラメータから取得
+		request.setCharacterEncoding("UTF-8");
 		String action = request.getParameter("action");
 		
 		HttpSession session = request.getSession();
@@ -188,7 +193,7 @@ public class RoadmapServlet extends HttpServlet {
 			roadmaps.add(currentRoadmap);
 			session.setAttribute("roadmaps", roadmaps);
 			
-			forwardPath = "MypageServlet";
+			redirectPath = "MypageServlet";
 			
 		}
 		
@@ -227,7 +232,7 @@ public class RoadmapServlet extends HttpServlet {
 			// 表示中roadmapインスタンスをJavaScriptで利用するためにJSON形式でセッションスコープに保存
 			elementsToJson(currentRoadmap, session);
 			
-			forwardPath = "WEB-INF/jsp/roadmap.jsp";
+			redirectPath = "RoadmapTransferServlet";
 		}
 
 		// ロードマップ子要素新規作成処理
@@ -270,7 +275,7 @@ public class RoadmapServlet extends HttpServlet {
 			// 表示中roadmapインスタンスをJavaScriptで利用するためにJSON形式でセッションスコープに保存
 			elementsToJson(currentRoadmap, session);
 			
-			forwardPath = "WEB-INF/jsp/roadmap.jsp";
+			redirectPath = "RoadmapTransferServlet";
 		}
 		
 		// ロードマップ親要素内容変更処理
@@ -317,7 +322,7 @@ public class RoadmapServlet extends HttpServlet {
 			// 表示中roadmapインスタンスをJavaScriptで利用するためにJSON形式でセッションスコープに保存
 			elementsToJson(currentRoadmap, session);
 			
-			forwardPath = "WEB-INF/jsp/roadmap.jsp";
+			redirectPath = "RoadmapTransferServlet";
 		}
 		
 		// ロードマップ子要素内容変更処理
@@ -367,7 +372,7 @@ public class RoadmapServlet extends HttpServlet {
 			// 表示中roadmapインスタンスをJavaScriptで利用するためにJSON形式でセッションスコープに保存
 			elementsToJson(currentRoadmap, session);
 			
-			forwardPath = "WEB-INF/jsp/roadmap.jsp";
+			redirectPath = "RoadmapTransferServlet";
 		}
 		
 		// ロードマップ新規作成処理
@@ -511,11 +516,11 @@ public class RoadmapServlet extends HttpServlet {
 			// 組み立てたRoadmapインスタンスをデータベースに保存
 			Boolean isCreateRoadmap = roadmapLogic.createRoadmap(roadmap);
 			
-			forwardPath = "WEB-INF/jsp/roadmap.jsp";
+			redirectPath = "RoadmapTransferServlet";
 		}
 		
-		RequestDispatcher dispatcher = request.getRequestDispatcher(forwardPath);
-		dispatcher.forward(request, response);
+		// リダイレクト(リロード対策)
+		response.sendRedirect(redirectPath);
 	}
 	
 	private void elementsToJson(Roadmap roadmap, HttpSession session) {

@@ -1,4 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
+	 MicroModal.init();
+	
     const table = document.getElementById('roadmap-table');
     table.addEventListener('click', function(e) {
       const target = e.target.closest('tr');

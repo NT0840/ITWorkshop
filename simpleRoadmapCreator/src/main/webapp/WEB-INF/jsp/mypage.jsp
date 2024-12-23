@@ -1,29 +1,31 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
 <%@ taglib prefix="fmt" uri="jakarta.tags.fmt" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ page import="model.*, java.util.*" %>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>マイページ</title>
-	<!-- リセットCSS -->
-	<link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
-	<!-- オリジナルCSS -->
-    <link rel="stylesheet" href="css/style.css">
-    
-    <link rel="icon" type="image/x-icon" href="image/favicon16.ico">
-    
+	<meta charset="UTF-8">
+	<title>マイページ</title>
+	<jsp:include page="head.jsp"/>
+	<script src="https://cdn.jsdelivr.net/npm/micromodal/dist/micromodal.min.js" defer></script>
     <script src="js/mypage.js" defer></script>
 </head>
 <body>
 	<jsp:include page="header.jsp"/>
     <div class="mypage-container">
         <div class="menu-container">
-            <h1>マイページ</h1>
-            <form action="LogoutServlet" method="post">
-                <button type="submit" class="button">ログアウト</button>
-            </form>
+        	<div>
+        		<h1>マイページ</h1>
+        		<p>ようこそ、${userId.userId}さん！</p>
+        	</div>
+        	<div class="mypage-button-container">
+	        	<form action="LogoutServlet" method="post">
+	        		<button type="button" class="button delete-button" data-micromodal-trigger="modal-delete-account">アカウント削除</button>
+	                <button type="submit" class="button">ログアウト</button>
+	            </form>
+        	</div>
         </div>
         <div class="roadmap-list">
             <div class="roadmap-headhing">
@@ -53,8 +55,32 @@
                 </c:forEach>
                 </tbody>
             </table>
+            <c:if test="${fn:length(roadmaps) == 0}">
+		    	<p>作成されたロードマップはありません。</p>
+			</c:if>
         </div>
     </div> 
     <jsp:include page="footer.jsp"/>
+    
+  <!-- モーダル(アカウント削除) -->
+  <div class="modal micromodal-slide" id="modal-delete-account" aria-hidden="true">
+    <div class="modal-overlay" tabindex="-1" data-micromodal-close>
+      <div class="modal-container" role="dialog" aria-modal="true" aria-labelledby="modal-delete-account-title">
+        <header>
+          <h2 id="modal-delete-account-title">アカウントの削除</h2>
+        </header>
+        <main class="modal-delete">
+          <p>アカウントを削除します。<br>本当によろしいですか？</p>
+        </main>
+        <footer class="modal-footer">
+          <button type="button" class="button back-button" data-micromodal-close>戻る</button>
+          <form action="AccountServlet" method="get">
+			<button type="submit" class="button delete-button">削除</button>
+          </form>
+        </footer>
+      </div>
+    </div>
+  </div>
+    
 </body>
 </html>

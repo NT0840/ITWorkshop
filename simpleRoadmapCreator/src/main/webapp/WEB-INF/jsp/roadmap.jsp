@@ -3,17 +3,11 @@
 <%@ taglib prefix="fmt" uri="jakarta.tags.fmt" %>
 <%@ page import="model.*, java.util.*" %>
 <!DOCTYPE html>
-<html lang="ja">
+<html>
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ロードマップ表示画面</title>
-	<!-- リセットCSS -->
-	<link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
-	<!-- オリジナルCSS -->
-    <link rel="stylesheet" href="css/style.css">
-    
-    <link rel="icon" type="image/x-icon" href="image/favicon16.ico">
+	<jsp:include page="head.jsp"/>
     
     <script src="https://cdn.jsdelivr.net/npm/micromodal/dist/micromodal.min.js" defer></script>
     <script src="https://d3js.org/d3.v7.min.js" defer></script>
@@ -122,7 +116,6 @@
   </div>
   
   <!-- モーダル(子要素新規作成ー) -->
-  <c:set var="roadmapIndex" value="${sessionScope.currentRoadmapId.roadmapId - 1}" />
   <div class="modal micromodal-slide" id="modal-new-child" aria-hidden="true">
     <div class="modal-overlay" tabindex="-1" data-micromodal-close>
       <div class="modal-container" role="dialog" aria-modal="true" aria-labelledby="modal-new-child-title">

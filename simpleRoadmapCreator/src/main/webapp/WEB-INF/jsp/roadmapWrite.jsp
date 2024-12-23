@@ -47,7 +47,8 @@ window.onload = function() {
    	        ry: rectRadiusY, 
    	        type: "parent",
    	     	name: truncateText(parentElements[i].parentName, 18), 
-   	        modalTrigger: "modalParent" + parentElements[i].parentNum
+   	        modalTrigger: "modalParent" + parentElements[i].parentNum, 
+   	     	statusClass: parentElements[i].parentStatusNum === 1 ? "Done" : ""
    	    });
    	    if (childElements[i] && childElements[i].length > 0) { // 左辺はi番目の要素が存在するか
    	   	    for (let j = 0; j < childElements[i].length; j++) {
@@ -60,7 +61,8 @@ window.onload = function() {
 	     	        ry: rectRadiusY, 
 	     	        type: "child",
 	     	     	name: truncateText(childElements[i][j].childName, 18), 
-	     	     	modalTrigger: "modalChild" + parentElements[i].parentNum + "-" + childElements[i][j].childNum
+	     	     	modalTrigger: "modalChild" + parentElements[i].parentNum + "-" + childElements[i][j].childNum, 
+	     	     	statusClass: childElements[i][j].childStatusNum === 1 ? "Done" : ""
      	    	});
  	 	    	yOffset += (rectHeight + rectMarginTop);
    	   	    }
@@ -89,7 +91,7 @@ window.onload = function() {
    	   	  // 図形を追加
    	   	  d3.select(this)
     	    .append("rect")
-	   	    .attr("class", "rectangle-"+d.type+"-element")
+	   	    .attr("class", "rectangle-" + d.type + "-element" + d.statusClass)
 	   	    .attr("x", d => d.x) // 開始x座標
 	   	    .attr("y", d => d.y) // 開始y座標
 	   	    .attr("width", d => d.width) // 横幅
@@ -104,7 +106,7 @@ window.onload = function() {
 	       // テキストを追加
 	       d3.select(this)
             .append("text")
-            .attr("class", "text")
+            .attr("class", "text" + d.statusClass)
             .attr("x", d.x + d.width / 2)
             .attr("y", d.y + d.height / 2)
             .attr("dominant-baseline", "middle")

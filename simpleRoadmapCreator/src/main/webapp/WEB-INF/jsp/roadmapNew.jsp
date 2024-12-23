@@ -2,13 +2,9 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<meta charset="UTF-8">
 	<title>ロードマップ新規作成</title>
-		<!-- リセットCSS -->
-		<link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
-		<!-- オリジナルCSS -->
-	<link rel="stylesheet" href="css/style.css">
-	
-	<link rel="icon" type="image/x-icon" href="image/favicon16.ico">
+	<jsp:include page="head.jsp"/>
 	
 	<script src="js/roadmapNew.js" defer></script>
 </head>
