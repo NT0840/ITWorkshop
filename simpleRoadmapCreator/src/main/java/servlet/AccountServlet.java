@@ -22,11 +22,12 @@ public class AccountServlet extends HttpServlet {
 		UserId userId = (UserId) session.getAttribute("userId");
 		
 		// ユーザーIDに紐づく各種データを削除
+		// アカウント情報削除
 		AccountLogic accountLogic = new AccountLogic();
 		Boolean isDeleteAccount = accountLogic.deleteAccount(userId);
-		
+		// ロードマップ情報削除
 		RoadmapLogic roadmapLogic = new RoadmapLogic();
-		Boolean isDeleteRoadmap= roadmapLogic.deleteByUserId(userId);
+		Boolean isDeleteRoadmap= roadmapLogic.deleteRoadmapByUserId(userId);
 		
 		// セッションスコープの破棄
 		session.invalidate();

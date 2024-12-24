@@ -220,6 +220,20 @@ public class RoadmapLogic {
 		return isRoadmapIdInsert && isParentElementInsert && isChildElementInsert; 
 	}
 	
+	public boolean deleteRoadmapByUserId(UserId userId) {
+		// ユーザーIDに紐づくロードマップの削除
+		RoadmapIdsDAO roadmapIdsDao = new RoadmapIdsDAO();
+		Boolean isRoadmapIdDelete = roadmapIdsDao.deleteByUserId(userId);
+		
+		ParentElementsDAO parentElementsDao = new ParentElementsDAO();
+		Boolean isParentElementDelete = parentElementsDao.deleteByUserId(userId);
+		
+		ChildElementsDAO childElementsDao = new ChildElementsDAO();
+		Boolean isChildElementDelete = childElementsDao.deleteByUserId(userId);
+		
+		return isRoadmapIdDelete && isParentElementDelete && isChildElementDelete; 
+	}
+	
 	public boolean deleteRoadmap(RoadmapId roadmapId) {
 		// roadmapの削除
 		RoadmapIdsDAO roadmapIdsDao = new RoadmapIdsDAO();

@@ -1,6 +1,6 @@
 {
   "driverClassName": "org.h2.Driver",
-  "jdbcUrl": "jdbc:h2:tcp://localhost/~/desktop/test",
+  "jdbcUrl": "jdbc:h2:tcp://localhost/~/desktop/simpleRoadmapCreator/db",
   "userName": "sa",
   "pass": ""
 }

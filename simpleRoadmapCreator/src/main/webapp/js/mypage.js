@@ -8,7 +8,18 @@ document.addEventListener('DOMContentLoaded', function() {
         window.location.href = target.dataset.href;
       }
     });
-  });
+    
+    const checkbox = document.getElementById('delete-confirm');
+	const deleteButton = document.getElementById('delete-confirm-button');
+
+	checkbox.addEventListener('change', function() {
+  	if (this.checked) {
+	    deleteButton.disabled = false;
+	} else {
+	    deleteButton.disabled = true;
+  	}
+  	});
+});
   
   
   

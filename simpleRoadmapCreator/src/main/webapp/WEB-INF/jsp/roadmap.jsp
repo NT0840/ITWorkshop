@@ -11,7 +11,7 @@
     
     <script src="https://cdn.jsdelivr.net/npm/micromodal/dist/micromodal.min.js" defer></script>
     <script src="https://d3js.org/d3.v7.min.js" defer></script>
-    <script src="js/script.js" defer></script>
+    <script src="${pageContext.request.contextPath}/js/script.js" defer></script>
 </head>
 <body>
   <jsp:include page="header.jsp"/>
@@ -162,7 +162,7 @@
   			<div class="modal-container" role="dialog" aria-modal="true" aria-labelledby="modalTitleParent${parentElement.parentNum}">
   				<form action="RoadmapServlet" method="post">
 	  				<header class="element-header">
-	  					<input type="text" class="element-title" name="parentName${parentElement.parentNum}" value="${parentElement.parentName}" maxlength="20" required>
+	  					<textarea type="text" class="element-title" name="parentName${parentElement.parentNum}" maxlength="20" required>${parentElement.parentName}</textarea>
 	  					<div class="element-button-container">
 	  						<button type="button" class="button delete-button element-delete-button" data-micromodal-trigger="modalParentDelete${parentElement.parentNum}">要素の削除</button>
 	  					</div>
@@ -252,7 +252,7 @@
 		  				<header class="element-header">
 	  						<input type="text" class="element-title" name="childName${parentElement.parentNum}-${childElement.childNum}" value="${childElement.childName}" maxlength="20" required>
 	  						<div class="element-button-container">
-	  							<button type="button" class="button delete-button" data-micromodal-trigger="modalChildDelete${parentElement.parentNum}-${childElement.childNum}">要素の削除</button>
+	  							<button type="button" class="button delete-button element-delete-button" data-micromodal-trigger="modalChildDelete${parentElement.parentNum}-${childElement.childNum}">要素の削除</button>
 	  						</div>
 	  					</header>
 		  				<main class="modal-element">

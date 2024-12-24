@@ -21,9 +21,10 @@
 			</c:if>
 			<form action="RegisterServlet" method="post">
 				<div class="register-form">
-					<p>ユーザー名：<input type="text" name="userId" class="form" required></p>
-					<p>パスワード：<input type="password" name="pass" class="form" required></p>
+					<p>ユーザー名：<input type="text" name="userId" class="form" maxlength="10" required></p>
+					<p>パスワード：<input type="password" name="pass" class="form" maxlength="10" required></p>
 					<p>パスワード(確認用)：<input type="password" name="passConfirm" class="form" required></p>
+					<small>※ユーザー名・パスワードは10文字以内で登録可能です。</small>
 				</div>
 				<div class="button-container">
 					<a href="LoginServlet" class="back-button button">戻る</a>

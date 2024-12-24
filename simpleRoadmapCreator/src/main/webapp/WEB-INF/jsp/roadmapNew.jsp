@@ -6,7 +6,7 @@
 	<title>ロードマップ新規作成</title>
 	<jsp:include page="head.jsp"/>
 	
-	<script src="js/roadmapNew.js" defer></script>
+	<script src="${pageContext.request.contextPath}/js/roadmapNew.js" defer></script>
 </head>
 <body>
 	<jsp:include page="header.jsp"/>

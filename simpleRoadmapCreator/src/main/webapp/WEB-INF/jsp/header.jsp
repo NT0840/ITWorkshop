@@ -5,6 +5,6 @@
 		<div class="logo-container">
 			<img src="image/icon128.ico">
 		</div>
-		<span>SimpleRoadmapCreater</span>
+		<span>SimpleRoadmapCreator</span>
 	</a>
 </header>

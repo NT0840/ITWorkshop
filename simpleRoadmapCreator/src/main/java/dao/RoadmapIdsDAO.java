@@ -161,4 +161,25 @@ public class RoadmapIdsDAO {
 		}
 		return true;
 	}
+	
+	public boolean deleteByUserId(UserId userId) {
+		try (Connection conn = DriverManager.getConnection(ApplicationListener.getJdbcUrl(), ApplicationListener.getUserName(), ApplicationListener.getPass())) {
+			
+			String sql = "DELETE FROM ROADMAP_IDS WHERE USER_ID = ?";
+			PreparedStatement pStmt = conn.prepareStatement(sql);
+			
+			pStmt.setString(1, userId.getUserId());
+			
+			// DELETEを実行、結果を保存
+			int result = pStmt.executeUpdate();
+			if(result < 1) {
+				return false;
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return false;
+		}
+		return true;
+	}
 }

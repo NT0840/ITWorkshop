@@ -13,8 +13,7 @@
 		<h1>アカウント削除完了</h1>
 		<div class="account-deleteOK-content">
 			<div class="account-deleteOK">
-				<p>アカウントの削除が完了しました。</p>
-				<p>ご利用ありがとうございました。。</p>
+				<p>アカウントの削除が完了しました。<br>ご利用ありがとうございました。</p>
 			</div>
 			<div class="button-container">
 				<a href="LoginServlet" class="back-button button">ログイン画面へ</a>

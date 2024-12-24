@@ -56,6 +56,10 @@ select:focus {
 .delete-button {
   background-color: #ad0c00;
 }
+.delete-button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
 
 /* ヘッダー */
 .header {
@@ -120,14 +124,14 @@ select:focus {
 }
 .top-text-title {
   color: #111;
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: rgba(255, 255, 255, 0.3);
   font-size: 2rem;
   margin-top: 10px;
   font-weight: bold;
 }
 .top-text-description {
   color: #111;
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: rgba(255, 255, 255, 0.3);
   font-size: 1.5rem;
   margin-top: 10px;
   font-weight: bold;
@@ -174,7 +178,7 @@ select:focus {
   font-weight: bold;
   margin-bottom: 0.5rem;
 }
-.login-button {
+.login-button-container {
   margin-top: 10px;
   text-align: center;
 }
@@ -197,16 +201,20 @@ select:focus {
 }
 
 /* ------------------------------------------------------- */
+/* アカウント管理 */
 /* アカウント登録画面 */
-.register-container {
+.register-container, 
+.account-deleteOK-container {
   background-color: #fff;
   padding: 1rem 0.5rem 2rem;
 }
-.register-container h1{
+.register-container h1, 
+.account-deleteOK-container h1 {
   border-bottom: 2px solid #ccc;
   padding: 0.5rem;
 }
-.register-content {
+.register-content, 
+.account-deleteOK-content {
 	margin-top: 40px;
 	display: flex;
 	flex-direction: column;
@@ -242,7 +250,6 @@ select:focus {
   font-weight: bold;
 }
 
-
 /* ------------------------------------------------------- */
 /* マイページ画面 */
 .mypage-container {
@@ -252,16 +259,20 @@ select:focus {
   margin-left: 0;
   margin-right: 0;
 }
-.mypage-button-container {
-	display: flex;
-	flex-direction: column;
-	justify-content: flex-end;
+.mypage-button-container, 
+.mypage-text-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+.toggle-checkbox-delete {
+  margin-bottom: 10px;
 }
 .menu-container {
   display: flex;
   justify-content: space-between;
   border-bottom: 2px solid #ccc;
-  padding: 0.5rem;
+  padding: 0 0.5rem 0.5rem;
 }
 .roadmap-list {
   padding: 0 1rem 1rem;
@@ -303,8 +314,6 @@ select:focus {
   padding: 2px;
   text-align: left;
 }
-
-
 
 /* ------------------------------------------------------- */
 /* ロードマップ新規作成画面 */
@@ -419,7 +428,8 @@ select:focus {
   border-bottom: 2px solid #ccc;
   padding-bottom: 10px;
 }
-.to-mypage {
+.to-mypage, 
+.to-register {
   padding: 14px 20px;
 }
 .roadmap-title-container {
@@ -432,7 +442,7 @@ select:focus {
   width: 80%;
 }
 .roadmap-info-container h1{
-  font-size: 2rem;
+  font-size: 1.7rem;
   margin-top: 20px;
   padding: 1px 10px;
 /*  width: 500px;*/
@@ -452,6 +462,7 @@ select:focus {
   align-items: flex-end; 
   flex-shrink: 0;
   width: 20%;
+  min-width: 160px;
   margin-top: 10px;
 }
 .add-element-button {
@@ -604,7 +615,7 @@ select:focus {
 	  justify-content: center;
 	}
 	.modal-new-child label{
-		margin-bottom: 20px;
+		margin-bottom: 10px;
 	}
 	.element-header {
 	  display: flex;
@@ -614,6 +625,10 @@ select:focus {
 	}
 	.element-button-container {
 	  margin-bottom: 10px;
+	  display: flex;
+	  flex-direction: column;
+	  justify-content: flex-end;
+	  flex-shrink: 0;
 	}
 	.modal-element {
 	  display: flex;
@@ -678,11 +693,38 @@ select:focus {
 	  padding: 4px;
 	  font-size: 1.2rem;
 	  font-weight: 600;
-	  background-color: white;
+	  flex-grow: 1; /* 余白スペースを全て占有 */
+	  min-height: 1lh;
+	  field-sizing: content;
+	  resize: none;
 	}
 /* ------------------------------------------------------------------------------------ */
 /* スマホ用スタイル */
 @media screen and (max-width: 768px) {
+	/* -------------------------------- */
+	/* 共通部分 */
+	.form {
+	  background-color: white;
+	  border: 1px solid #000;
+	  border-radius: 5px;
+	  padding: 4px;
+	  margin: 10px;
+	  font-size: 0.8rem;
+	}
+	select {
+	  width: 6rem;
+	  padding: 4px;
+	  border: 1px solid #000;
+	  border-radius: 5px;
+	  font-size: 0.8rem;
+	  cursor: pointer;
+	  margin-right: 10px;
+	}
+	label, a, input,  p,  button{
+	  font-size: 0.8rem;
+	}
+	
+	/* トップ画面(ログイン画面) */
 	.top-upside-container {
 	  flex-direction: column;
 	  justify-content: center;
@@ -692,7 +734,13 @@ select:focus {
 	.login-form {
 	  text-align: center;
 	}
-	
+	.ad-container {
+	  display: flex;
+	  flex-direction: column;
+	  justify-content: center; /* 横方向に中央寄せ */
+	  align-items: center; /* 縦方向に中央寄せ */
+	  min-height: 250px;
+	}
 	.login-container {
 	  margin: 40px 10px 40px;
 	  padding: 20px 10px; 
@@ -701,6 +749,102 @@ select:focus {
 	  background-color: #ffeedd;
 	  max-height: 370px;
 	  width: 80%;
-	  max-width: 450px;
+	  max-width: 300px;
+	}
+	.top-button {
+	  margin-bottom: 10px;
+	  flex-wrap: nowrap;
+	}
+	.top-text-title {
+	  color: #111;
+	  background-color: rgba(255, 255, 255, 0.3);
+	  font-size: clamp(1rem, 5vw, 2rem); /* フォントサイズの最小値を1rem、最大値を2remに、画面幅の5%を基準値とする */
+	  margin-top: 10px;
+	  font-weight: bold;
+	  white-space: nowrap; /* テキストを強制的に1行に表示 */
+	}
+	.top-text-description {
+	  color: #111;
+	  background-color: rgba(255, 255, 255, 0.3);
+	  font-size: clamp(0.5rem, 5vw, 1.5rem);
+	  margin-top: 10px;
+	  font-weight: bold;
+	  white-space: nowrap;
+	}
+	.login-button-container {
+	  margin-top: 10px;
+	  text-align: center;
+	  display: flex;
+	  flex-direction: column;
+	  align-items: center;
+	}
+	.to-register {
+		padding: 10px 20px;
+		margin-bottom: 10px;
+	}
+	/* -------------------------------- */
+	/* マイページ画面 */
+	.mypage-button-container {
+	  margin-left: 0;
+  	  margin-right: 0;
+	}
+	.mypage-button {
+	  margin-top: 10px;
+	}
+	.mypage-button-inner-container {
+	  display: flex;
+	  flex-direction: column;
+	}
+	/* -------------------------------- */
+	/* ロードマップ画面 */
+	.modal-container {
+      background: #fff;
+      color: #333;
+      padding: 20px;
+      width: 60%;
+      min-width: 300px;
+      border-radius: 8px;
+      text-align: center;
+    }
+    .element-header {
+	  display: flex;
+	  flex-direction: column;
+	  text-align: left;
+	  justify-content: flex-end;
+	  text-align: left;
+	  border-bottom: 1px solid #000;
+	}
+	.element-button-container {
+	  margin: 0;
+	  padding: 5px;
+	  display: flex;
+	  justify-content: flex-start;
+	  align-items: left;
+	  flex-shrink: 0;
+	}
+	.element-delete-button {
+	  margin-left: 0;
+	  width: 80px;
+	  padding: 5px;
+	  font-size: 0.7rem;
+	}
+	.element-time {
+	  display: flex;
+	  flex-direction: column;
+	  align-items: flex-start;
+	  justify-content: left;
+	  font-size: 0.8rem;
+	}
+	.element-content-upside label {
+	  font-size: 0.8rem;
+	  margin-top: 10px;
+	  font-weight: 500;
+	}
+	.element-textarea-container {
+	  font-size: 0.8rem;
+	  padding: 10px;
+	  border: 1px solid #ccc;
+	  border-radius: 1rem;
+	  min-width: 100%;
 	}
 }

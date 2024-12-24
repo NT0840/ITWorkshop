@@ -29,6 +29,7 @@ function addParentRow() {
   nameInput.id = `parent-name-${parentRowCount}`;
   nameInput.classList.add('create-name');
   nameInput.name = `parent-name-${parentRowCount}`;
+  nameInput.maxLength = '20';
   nameInput.required = true;
 
   const removeButton = document.createElement('button');
@@ -98,6 +99,7 @@ function addChildRow(button) {
   childNameInput.id = `child-name-${parentIndex}-${childRowCounts[parentIndex]}`;
   childNameInput.classList.add('create-name');
   childNameInput.name = `child-name-${parentIndex}-${childRowCounts[parentIndex]}`;
+  childNameInput.maxLength = '20';
   childNameInput.required = true;
 
   const childTagLabel = document.createElement('label');

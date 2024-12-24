@@ -1,9 +1,9 @@
 <mxfile host="65bd71144e">
     <diagram id="WHIG_iPTzpvooCITM3A4" name="画面遷移図">
-        <mxGraphModel dx="2609" dy="1128" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+        <mxGraphModel dx="2555" dy="1316" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
-                <mxCell id="832" value="枠組み" style="locked=1;" parent="0" visible="0"/>
+                <mxCell id="832" value="枠組み" style="locked=1;" parent="0"/>
                 <mxCell id="833" value="" style="rounded=0;whiteSpace=wrap;html=1;labelBackgroundColor=none;strokeColor=#FF99CC;fontSize=11;fontColor=#FFFFFF;fillColor=none;dashed=1;" parent="832" vertex="1">
                     <mxGeometry x="20" y="219" width="1480" height="821" as="geometry"/>
                 </mxCell>
@@ -3774,7 +3774,7 @@
                 <mxCell id="1257" value="※「子要素変更画面」にて、所属親要素を変更させる場合は、「要素の削除」同様に別モーダルで実現させる" style="text;strokeColor=default;align=left;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;labelBackgroundColor=none;fontSize=10;dashed=1;strokeWidth=2;perimeterSpacing=0;dashPattern=1 1;glass=1;" parent="1" vertex="1">
                     <mxGeometry x="1258" y="3050" width="174" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="1259" value="ここの画面遷移はモーダルで実現" style="text;strokeColor=default;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;labelBackgroundColor=none;fontSize=10;dashed=1;strokeWidth=2;perimeterSpacing=0;dashPattern=1 1;glass=1;container=0;" vertex="1" parent="1">
+                <mxCell id="1259" value="ここの画面遷移はモーダルで実現" style="text;strokeColor=default;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;labelBackgroundColor=none;fontSize=10;dashed=1;strokeWidth=2;perimeterSpacing=0;dashPattern=1 1;glass=1;container=0;" parent="1" vertex="1">
                     <mxGeometry x="-1360" y="2182.13" width="300" height="30.75" as="geometry"/>
                 </mxCell>
                 <mxCell id="887" value="ポップアップ" style="" parent="0"/>

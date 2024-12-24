@@ -34,9 +34,9 @@
 						<p>ユーザー名：<br><input type="text" name="userId" class="form" required><br></p>
 						<p>パスワード：<br><input type="password" name="pass" class="form" required><br></p>
 					</div>
-					<div class="login-button">
-						<a href="RegisterServlet" class="button to-mypage">ユーザー登録</a>
-						<input type="submit" value="ログイン" class="button">
+					<div class="login-button-container">
+						<a href="RegisterServlet" class="button to-register login-button">ユーザー登録</a>
+						<input type="submit" value="ログイン" class="button login-button">
 					</div>
 				</form>
 			</div>

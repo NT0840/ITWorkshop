@@ -12,6 +12,7 @@ import listener.ApplicationListener;
 import model.ChildElement;
 import model.ParentElement;
 import model.RoadmapId;
+import model.UserId;
 
 public class ChildElementsDAO {
 	
@@ -524,6 +525,27 @@ public class ChildElementsDAO {
 			
 			pStmt.setString(1, roadmapId.getUserId());
 			pStmt.setInt(2, roadmapId.getRoadmapId());
+			
+			// DELETEを実行、結果を保存
+			int result = pStmt.executeUpdate();
+			if(result < 1) {
+				return false;
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return false;
+		}
+		return true;
+	}
+	
+	public boolean deleteByUserId(UserId userId) {
+		try (Connection conn = DriverManager.getConnection(ApplicationListener.getJdbcUrl(), ApplicationListener.getUserName(), ApplicationListener.getPass())) {
+			
+			String sql = "DELETE FROM CHILD_ELEMENTS WHERE USER_ID = ?";
+			PreparedStatement pStmt = conn.prepareStatement(sql);
+			
+			pStmt.setString(1, userId.getUserId());
 			
 			// DELETEを実行、結果を保存
 			int result = pStmt.executeUpdate();

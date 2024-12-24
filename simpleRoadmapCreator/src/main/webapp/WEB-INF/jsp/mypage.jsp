@@ -10,20 +10,20 @@
 	<title>マイページ</title>
 	<jsp:include page="head.jsp"/>
 	<script src="https://cdn.jsdelivr.net/npm/micromodal/dist/micromodal.min.js" defer></script>
-    <script src="js/mypage.js" defer></script>
+    <script src="${pageContext.request.contextPath}/js/mypage.js" defer></script>
 </head>
 <body>
 	<jsp:include page="header.jsp"/>
     <div class="mypage-container">
         <div class="menu-container">
-        	<div>
+        	<div class="mypage-text-container">
         		<h1>マイページ</h1>
-        		<p>ようこそ、${userId.userId}さん！</p>
+        		<p>ようこそ、<br>${userId.userId}さん！</p>
         	</div>
         	<div class="mypage-button-container">
-	        	<form action="LogoutServlet" method="post">
-	        		<button type="button" class="button delete-button" data-micromodal-trigger="modal-delete-account">アカウント削除</button>
-	                <button type="submit" class="button">ログアウト</button>
+	        	<form class="mypage-button-inner-container" action="LogoutServlet" method="post">
+	        		<button type="button" class="button delete-button mypage-button" data-micromodal-trigger="modal-delete-account">アカウント削除</button>
+	                <button type="submit" class="button mypage-button">ログアウト</button>
 	            </form>
         	</div>
         </div>
@@ -70,14 +70,18 @@
           <h2 id="modal-delete-account-title">アカウントの削除</h2>
         </header>
         <main class="modal-delete">
-          <p>アカウントを削除します。<br>本当によろしいですか？</p>
+          <p>アカウントを削除します。<br>作成したロードマップはすべて削除されます。<br>本当によろしいですか？</p>
         </main>
-        <footer class="modal-footer">
-          <button type="button" class="button back-button" data-micromodal-close>戻る</button>
-          <form action="AccountServlet" method="get">
-			<button type="submit" class="button delete-button">削除</button>
-          </form>
-        </footer>
+        <form action="AccountServlet" method="get">
+        	<div class="item">
+				<input type="checkbox" id="delete-confirm" class="toggle-checkbox-delete">
+				<label for="delete-confirm">アカウントを削除します</label>
+			</div>
+	        <footer class="modal-footer">
+	          <button type="button" class="button back-button" data-micromodal-close>戻る</button>
+			  <button type="submit" class="button delete-button" id="delete-confirm-button" disabled>削除</button>
+	        </footer>
+        </form>
       </div>
     </div>
   </div>
