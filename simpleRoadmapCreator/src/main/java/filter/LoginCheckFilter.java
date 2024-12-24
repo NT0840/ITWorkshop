@@ -10,7 +10,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
-@WebFilter("/WEB-INF/jsp/*")
+@WebFilter(servletNames = {"/RoadmapServlet", "/RoadmapTransferServlet", "/AccountServlet", "/AccountTransferServlet"})
 public class LoginCheckFilter extends HttpFilter {
 
 	public void doFilter(HttpServletRequest request, HttpServletResponse response, FilterChain chain) throws IOException, ServletException {
