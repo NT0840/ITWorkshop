@@ -89,7 +89,7 @@
 1. GitからZIPをダウンロードおよび解凍
 2. 解凍したファイルのうち、「simpleRoadmapCreator」フォルダをEclipse2023のワークスペースに配置
 3. Eclipse上で既存プロジェクトとしてインポート
-4. 「simpleRoadmapCreator」フォルダ内のデータベースファイル「db.mv.db」を、デスクトップ上に作成した「simpleRoadmapCreator」フォルダ内に配置
+4. データベースファイル「db.mv.db」を、デスクトップ上に「simpleRoadmapCreator」フォルダを作成して、その中に配置
 5. 上述のスタートファイルに対してサーバーで「実行」->「サーバーで実行」(Tomcat10(Java21))
 
 # その他
