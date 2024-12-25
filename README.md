@@ -90,29 +90,35 @@
 ## ライセンス
 このアプリケーションは以下のオープンソースライブラリを使用しています。各ライブラリは、それぞれのライセンス条項に基づいて使用しています：
 
-1. D3.js
-   - Copyright: 2010-2023 Mike Bostock
-   - ライセンス: BSD 3-Clause "New" or "Revised" License
-   - 詳細: [D3.js License](https://github.com/d3/d3/blob/main/LICENSE)
+1. **D3.js**
+   - **著作権**: Copyright (c) 2010-2023 Mike Bostock
+   - **ライセンス**: BSD 3-Clause "New" or "Revised" License
+   - **詳細**: [D3.js License](https://github.com/d3/d3/blob/main/LICENSE)
+   - **概要**: D3.jsはデータ駆動型ドキュメントを操作するためのJavaScriptライブラリです。
 
-2. Micromodal.js
-   - Copyright: (c) 2017 Indrashish Ghosh
-   - ライセンス: MIT License
-   - 詳細: [Micromodal.js License](https://github.com/ghosh/Micromodal/blob/master/LICENSE.md)
+2. **Micromodal.js**
+   - **著作権**: Copyright (c) 2017 Indrashish Ghosh
+   - **ライセンス**: MIT License
+   - **詳細**: [Micromodal.js License](https://github.com/ghosh/Micromodal/blob/master/LICENSE.md)
+   - **概要**: Micromodal.jsは、シンプルで軽量なモーダルウィンドウライブラリです。
 
-3. gson-2.11.0
-   - Copyright: 2008 Google Inc.
-   - ライセンス: Apache License 2.0
-   - 詳細: [gson License](https://github.com/google/gson/blob/main/LICENSE)
+3. **gson-2.11.0**
+   - **著作権**: Copyright (c) 2008 Google Inc.
+   - **ライセンス**: Apache License 2.0
+   - **詳細**: [gson License](https://github.com/google/gson/blob/main/LICENSE)
+   - **概要**: GsonはJavaオブジェクトとJSONとの相互変換を行うライブラリです。
 
-4. Jackson Core (2.18.2), Jackson Annotations (2.18.2), Jackson Databind (2.18.2)
-   - Copyright: (c) 2007- Tatu Saloranta, tatu.saloranta@iki.fi
-   - ライセンス: Apache License 2.0
-   - 詳細: [Jackson License](https://github.com/FasterXML/jackson-databind/blob/master/LICENSE)
+4. **Jackson Core (2.18.2), Jackson Annotations (2.18.2), Jackson Databind (2.18.2)**
+   - **著作権**: Copyright (c) 2007- Tatu Saloranta, tatu.saloranta@iki.fi
+   - **ライセンス**: Apache License 2.0
+   - **詳細**: [Jackson License](https://github.com/FasterXML/jackson-databind/blob/master/LICENSE)
+   - **概要**: JacksonはJavaでJSONデータを処理するための高性能なライブラリです。
 
-5. Jakarta Standard Tag Library (JSTL) (3.0.1), Jakarta Standard Tag Library API (3.0.0)
-   - Copyright: (c) 2018 Oracle and/or its affiliates. All rights reserved.
-   - ライセンス: Eclipse Public License 2.0 または GNU General Public License v2.0 with Classpath Exception
-   - 詳細: [Jakarta Standard Tag Library License](https://github.com/eclipse-ee4j/jstl-api/blob/master/LICENSE.md)
+5. **Jakarta Standard Tag Library (JSTL) (3.0.1), Jakarta Standard Tag Library API (3.0.0)**
+   - **著作権**: Copyright (c) 2018 Oracle and/or its affiliates. All rights reserved.
+   - **ライセンス**: Eclipse Public License 2.0 または GNU General Public License v2.0 with Classpath Exception
+   - **詳細**: [Jakarta Standard Tag Library License](https://github.com/eclipse-ee4j/jstl-api/blob/master/LICENSE.md)
+   - **概要**: JSTLはJavaServer Pages（JSP）用の標準タグライブラリです。
 
 詳細については上記のリンクをご参照ください。
+
